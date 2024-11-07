@@ -120,7 +120,7 @@ However, the major issue still exists for these techniques --- scalability to la
 
 == Vector Graphics
 
-#figure(caption: [Vector vs Bitmap graphics @arneratermanis2017])[#image("assets/vector-vs-bitmap.png")] <vector-vs-bitmap>
+#figure(caption: [Vector vs Bitmap graphics @arneratermanis2017])[#image("assets/vector-vs-raster.png")] <vector-vs-bitmap>
 
 Traditional methods of rendering 2D graphics has always relied on bitmap-based texture mapping @ray2005vector.
 While this approach is ubiquitous, it suffers a major drawback of the _pixelation_ effect when being scaled beyond the original resolution @nehab2008random.
