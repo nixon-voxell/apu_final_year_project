@@ -18,7 +18,7 @@
     spacing: 1em,
     image("assets/sdg9.svg"),
     align(horizon)[
-      *Establishing a Workflow for Real-time Global Illumination and Vector Graphics in Enhancing Dynamic Game Environments*
+      *Establishing a Framework for Interactive and Dynamic Vector Graphics Content in Real-Time Video Games*
     ],
   )
 
@@ -42,7 +42,7 @@
 
   *Supervised by Mr. Jacob Sow Tian You*
 
-  *2#super[nd] Marker: Dr. Tan Chin Ike*
+  *2#super[nd] Marker: Assoc. Prof. Ts. Dr. Tan Chin Ike*
 
   #linebreak()
 
@@ -77,18 +77,24 @@
 
 // Summary, Introduction, Methodology (purposive sampling, qualitative/quantitative), NO result
 
-Achieving visually rich and interactive content in real-time without compromising performance is a key aspect of immersive gameplay.
-This project seeks to establish a streamlined workflow that incorporates real-time global illumination (GI) and compute-centric vector graphics (VG) into dynamic game environments in a way that is accessible and adaptable for game developers.
-These integrations will help improve visual appeal and interactive feedback in gameplay.
-Our method utilizes radiance cascades for enabling real-time GI, Vello for rendering dynamic VG in real-time, and Typst for VG content creation.
-Using purposive sampling, this study targets developers in the game development industry through the use of questionnaires.
-It is aimed to gather insights on the importance of GI and VG as well as the level of integrations in state-of-the-art game engines.
-This paper provides an in-depth look at the challenges and potential methods for integrating these technologies into game development, with an emphasis on their impact on interactive and adaptable content creation.
-Our approach contributes to advancing infrastructure and fostering innovation, aligning with the goals of Sustainable Development Goal (SDG) 9.
+Despite the widespread use of raster graphics in games, vector graphics remain underutilized and largely absent, with little integration and no established framework for their effective use in modern game development.
+This project introduces #velyst, a streamlined framework for integrating interactive and dynamic vector graphics into real-time video games.
+It leverages Typst for vector content creation and Vello for real-time rendering of dynamic vector graphics.
+By simplifying the process, this framework enables developers to produce high-quality and engaging content without needing to delve deeply into technical complexities.
+Our study employs purposive sampling to collect valuable insights from developers in the gaming and interactive application sectors.
+We will conduct three in-depth interviews with industry professionals to gain expert perspectives.
+Additionally, online survey questionnaires will be distributed to a broader developer audience to capture a wider range of opinions.
+This uncovers the challenges and opportunities of integrating vector graphics, with insights that contributes to the framework on reducing technical barriers, enhancing interactivity, and highlighting areas for further innovation in the field.
+This research aims to demonstrate the untapped potential of vector graphics in modern gaming and provide a practical solution for their seamless integration.
+Our approach contributes to advancing infrastructure and fostering innovation, aligning with the goals of _Sustainable Development Goal (SDG) 9_.
+
+// Achieving visually rich and interactive vector graphics content in real-time without compromising performance is a key aspect of developing engaging gaming experiences.
+// Our method utilizes Typst for vector graphics content creation and Vello for rendering dynamic vector graphics in real-time.
+// This paper provides an in-depth look at the challenges and potential methods for integrating these technologies into game development, with an emphasis on their impact on interactive and adaptable content creation.
 
 // Keywords - Max 6
 
-*Keywords* --- radiance cascades, indirect lighting, typesetting, markdown, interactivity, dynamic content
+*Keywords* --- Typesetting, Markdown, Workflow, Dynamic content, Compute-centric, Typst
 
 #pagebreak()
 
@@ -117,21 +123,36 @@ Our approach contributes to advancing infrastructure and fostering innovation, a
 // It is important to write a chapter that clearly explains the project's flow.
 // A thorough understanding of the ground work is necessary in order to write a well-written chapter.
 
-Achieving visually rich and interactive content in real-time without compromising performance is a key aspect of immersive gameplay.
-This project addresses two major challenges in modern game development: creating dynamic, interactive user experiences and implementing accurate, real-time lighting models.
-Tackling these challenges requires three key innovations: a compute-centric vector graphics renderer, a programmable approach for developing interactive content, and a performant global illumination technique.
+// Achieving visually rich and interactive content in real-time without compromising performance is a key aspect of enhancing player engagement.
+// This project addresses two major challenges in modern game development: creating dynamic, interactive user experiences and implementing accurate, real-time lighting models.
+// Tackling these challenges requires two key innovations: a compute-centric vector graphics renderer and a programmable approach for developing interactive content.
 
+*Vector graphics* is a form of computer graphics where visual images are generated using mathematical formulae @rick2024vector.
+This includes geometric shapes, such as points, lines, curves, and polygons that are defined on a Cartesian plane.
+The use of vector graphics in games can be tracked way back to when computer games was first developed.
+One of the earliest examples of video game, _Tennis for Two_ (shown in @tennis-for-two) uses vector graphics to render their game on a repurposed oscilloscope in 1958 @historyofgames2023.
+It was not long before video games was first commercialized during the 1970s and 1980s, with the release of vector graphics rendered games like _Space Wars_ #cite(<spacewar1997>, form: "prose"), _Battlezone_ #cite(<battlezone1980>, form: "prose"), and _Tac/Scan_ #cite(<tagscan1982>, form: "prose").
+These games showcases the potential of vector-based visuals to achieve fluid and interactive animations.
 
-Calculating *global illumination* is extremely computationally expensive, as it requires simulating how light bounces off surfaces and interacts with the environment.
-Ray tracing is an algorithm that calculates these light interactions by tracing lights from the camera into the scene, following their paths as they bounce off surfaces and interact with materials.
-Each bounce contributes to the final color and lighting of the scene, accounting for reflections, refractions, and scattering.
+#figure(
+  image("assets/Tennis for Two.png"),
+  caption: [Tennis for Two @tennis1958],
+) <tennis-for-two>
 
-Unfortunately, ray tracing is too slow for real-time applications, like games.
-New techniques like light probes and light baking has been employed to approximate global illumination in modern game engines.
-However, the major issue still exists for these techniques --- scalability to larger and more complex scenes.
+Around this time, graphical processing units (GPU) were also experiencing rapid development and growth.
+In 1989, Silicon Graphics Inc. (SGI) created one of the earliest graphics application programming interfaces (API) OpenGL, which forms the foundation of today’s computer graphics software @evolutiongpu2004.
+As GPU advanced, support for raster graphics improved significantly, leading to a decline in the use of vector-based rendering technology in gaming @vectoringaming.
 
-*Vector graphics* is a form of computer graphics where visual images are generated from geometric shapes, such as points, lines, curves, and polygons, defined on a Cartesian plane.
-Vector graphics are often used in situations where scalability and precision are essential. Common applications include: logos, typography, diagrams, charts, motion graphics, etc.
+Despite the rise of raster graphics, the unique benefits of vector graphics (scalability and precision) continue to offer significant potential in modern game environments.
+Today, vector graphics are rendered using high resolution monitors through the process of rasterization @tian2022survey.
+This necessity led to the rise of algorithms specifically designed to convert mathematically defined shapes into pixels, creating a new domain of computational challenges.
+In addition, there is little to no tool available that effectively integrates vector graphics content into real-time, interactive game environments.
+The absence of such tools has hindered the widespread adoption of vector graphics in modern game development, limiting their use to methods like triangulation @drawinglines2015 and sign distance field @alvin2020rendering due to technical constraints.
+
+This project addresses the need for a simplified and efficient workflow to integrate vector graphics into video games.
+
+Vector graphics are often used in situations where scalability and precision are essential.
+Common applications include: logos, typography, diagrams, charts, motion graphics, etc.
 Examples of softwares that generates or uses vector graphics content includes Adobe Illustrator, Adobe After Effects, Affinity Publisher, Graphite, and many more.
 Vector graphics is also used in a wide range of file formats including Scalable Vector Graphics (SVG), Portable Document Format (PDF), TrueType Font (TTF), OpenType Font (OTF), etc.
 However, these formats are rarely used in the game industry directly (they are often preprocessed into some other formats, i.e. triangulation or signed distance fields [SDF]), as game engines are often only tailored towards rendering triangles and bitmap textures instead of paths and curves that we see in the vector graphics formats.
@@ -141,21 +162,9 @@ Over the years, technologies like Unity UI Toolkit has evolved in the game indus
 While this improves the user experience of content creation, it lacks the capability of integrating logic and custom contents right inside the user interfaces.
 These features are often delegated to the programmer which can lead to unintended miscommunications.
 
-== Problem Background
+== Problem Statement
 
-=== Limitations of scalability in current real-time global illumination techniques
-
-Global illumination has been a notoriously hard problem to solve in computer graphics.
-To put things into perspective, global illumination intends to solve the _many to many_ interactions between light, obstacles, and volumes.
-In real-time game engines like Unity and Unreal Engine, light probes (a.k.a radiance probes) are placed around the scene to capture lighting information, which can then be applied to nearby objects.
-To smoothen out the transition between probes, objects interpolate between nearest surrounding probes, weighted by distance to approximate the global radiance.
-
-This technique leads to questions like "how many probes should a scene have?" or "how much probes is a good approximation?".
-Ultimately, it becomes a trade-off between fidelity versus performance, with more probes resulting in better approximation, while fewer probes improve performance.
-This paradoxical issue raises the challenge of finding the optimal balance.
-This dilemma underscores the need for smarter, adaptive techniques, ensuring both visual fidelity and efficiency.
-
-=== Advantages of vector graphics over bitmap graphics in terms of animation
+=== Scalability, precision, and animation
 
 #figure(caption: [Vector vs Bitmap graphics @arneratermanis2017])[#image(
     "assets/vector-vs-raster.png",
@@ -183,7 +192,7 @@ WYSIWYG editors are visual centric tools that let users work directly within the
 Users normally layout their contents using a drag and drop editor and then style them using a style-sheet.
 To bind interactions or animations towards a content, users would need to label it with a unique tag and query them through code.
 
-Complex content and logic wouldn't be possible through a typical WYSIWYG editor.
+Complex content and logic would not be possible through a typical WYSIWYG editor.
 For instance, it is virtually impossible to author a custom polygon shape in the editor with custom math based animation which depends on a time value.
 This can only be achieved through code, and is often limited by the application programming interface (API) layer provided by the WYSIWYG editor.
 This creates a huge distinction between the game/UI logic and the visual representation that is needed to convey the messages.
@@ -196,7 +205,7 @@ This could lead to frustration and lost of creativity due to the slow feedback l
 
 This project aims to empower creators to create rich and visually appealing content in games in an efficient and streamlined workflow, by allowing them to focus most of their time on the content instead of the technical details needed to achieve the look or feel that they envisioned.
 
-== Objectives
+== Research Objectives
 
 // A minimum of three objectives and a maximum of four.
 // Must be measurable
@@ -338,34 +347,7 @@ It will particularly appeal to gamers who love the mix of competitive PvP and Pv
 
 == Domain Research
 
-== Global Illumination
-
-As mentioned previously, ray tracing is the de-facto standard for calculating light bounces which contributes to global illumination.
-Clever methods like backwards ray tracing has been introduced to speed up the algorithm, but it is still nowhere near real-time frame rates @arvo1986backward.
-Light baking is introduced to solve this issue, however, it lacks the ability to adapt to runtime scene changes.
-
-Recent studies has shown great results of utilizing neural networks for approximating global illumination @choi2024baking.
-// TODO: add more sources to support the claim
-However, neural network based methods tend to suffer from unpredictability as the output is highly basd upon the input training data, making it unreliable.
-
-Recent works by #cite(<mcguire2017real>, form: "prose") places light field probes around the scene to encode lighting information from static objects and sample them in real-time.
-Dynamic diffuse global illumination (DDGI) further improves this technique by allowing light field probes to update dynamically based on scene changes @majercik2019dynamic.
-
-
-Radiance cascades improves upon this technique by using a hierarchical structure to place light probes @osborne2024radiance.
-This technique is based upon the _penumbra condition_, where closer distance require low angular resolution and high spatial resolution while further distance require high angular resolution and low spatial resolution.
-
-/*
-Global illumination
-- Backwards Ray Tracing
-- Light baking
-- Light probes
-- Adaptive probes volumes (only capture local volumes)
-- Voxell GI
-- SDF GI
-*/
-
-== Vector Graphics
+=== Vector Graphics
 
 Scanline rendering is the process of shooting rays from one side of the screen to the other while coloring pixels in between based on collision checkings with paths in between.
 A GPU based scanline rasterization method is proposed by parallelizing over _boundary fragments_ while bulk processing non-boundary fragments as horizontal spans @li2016efficient.
@@ -398,7 +380,7 @@ Vector Graphics
 - Massively parallel
 */
 
-== Interactive UI/UX
+=== Interactive UI/UX
 
 Beneath all graphical interfaces lies the underlying code that structure and renders the visual elements.
 The two most notable approach towards creating user interface frameworks are immediate-mode graphical user interface (IMGUI) and retained-mode graphical user interface (RMGUI).
@@ -423,8 +405,6 @@ Typst is a competitor of LaTeX, designed to simplify the typesetting process wit
 Unlike its predecessors, Typst can directly embed logic.
 Using the previous example, developers would only need to pass in a boolean value and Typst will automatically exclude the form from being in the layout at all.
 This currently works only in theory, as Typst is primarily a document generator without a user-friendly interface for modifying defined variables.
-
-This is where our project comes in, we aim to provide this interface through Velyst, which couple Typst with Vello for rendering dynamic and programmable content in real-time.
 
 /*
 Interactive UI/UX
