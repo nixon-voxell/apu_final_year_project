@@ -7,14 +7,24 @@
 
 #pagebreak()
 
-#set page(numbering: "1 / 1", number-align: right)
+#set page(
+  header: context [
+    #set text(size: 10pt, fill: base3)
+    #place(bottom + right)[#counter(page).display("1")]
+  ],
+  footer: [
+    #set text(size: 10pt, fill: base6)
+    #place(top + left)[TP058994]
+    #place(top + right)[Cheng Yi Heng]
+  ],
+)
 #set par(justify: true, leading: 1em, spacing: 2em)
 #set enum(indent: 1em)
 #set table(inset: 6pt, stroke: 0.6pt)
 #set raw(theme: "Monokai Pro.tmTheme")
 
 #show heading: set block(height: 1.5em)
-// #show link: set text(style: "italic", fill: base0.mix(blue))
+#show figure.caption: set text(style: "italic")
 #show outline.entry.where(level: 1): it => {
   v(14pt, weak: true)
   strong(it)
@@ -33,10 +43,18 @@
 
 #align(center)[= Acknowledgement]
 
+I would like to express my heartfelt gratitude to everyone who supported me throughout the development of #velyst and the #lumina game.
+First, I am deeply thankful to my teammates, whose dedication, collaboration, and creativity were essential in bringing this project to completion.
+
+I also wish to extend my sincerest thanks to my supervisors, Mr. Jacob Sow Tian You and Assoc. Prof. Ts. Dr. Tan Chin Ike, for their invaluable guidance, insights, and encouragement throughout this journey.
+
+Finally, I would like to thank my family and friends for their unwavering support and belief in me, which provided the motivation I needed to persevere through challenges.
+This project would not have been possible without each of you.
+
 #pagebreak()
 
 = Abstract
-// Summary, Introduction, Methodology (purposive sampling, qualitative/quantitative), NO result
+// Summary, Introduction, Methodology (purposive sampling, qualitative/quantitative), Expected result
 
 Despite the widespread use of raster graphics in games, vector graphics remain underutilized and largely absent, with little integration and no established framework for their effective use in modern game development.
 This project introduces #velyst, a streamlined framework for integrating interactive and dynamic vector graphics into real-time video games.
@@ -50,7 +68,9 @@ This research aims to demonstrate the untapped potential of vector graphics in m
 Our approach contributes to advancing infrastructure and fostering innovation, aligning with the goals of _Sustainable Development Goal (SDG) 9_.
 
 // Keywords - Max 6
-*Keywords* --- Typesetting, Markdown, Workflow, Dynamic content, Compute-centric, Typst
+_*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Compute-centric, Typst_
+
+#place(bottom)[*SDG Goal 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation*]
 
 #pagebreak()
 
@@ -82,13 +102,9 @@ Our approach contributes to advancing infrastructure and fostering innovation, a
 
 #include "literature_review.typ"
 
-= Methodology
+#pagebreak()
 
-== System Development Methodology
-
-== Data Gathering Design
-
-== Analysis
+#include "methodology.typ"
 
 #show heading.where(level: 1): set heading(numbering: none)
 

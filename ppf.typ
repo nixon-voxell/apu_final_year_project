@@ -198,7 +198,7 @@ Apart from scanline rasterization, tesselation method can also be used to conver
 Instead, each curve segments is evalulated in a _fragment shader_ which can be calculated on the GPU.
 This allows for extreme zoom levels without sacrificing qualities.
 
-Re-tesselation of vector graphics can be computationally expensive, especially when it's inherently a serial algorithm that often needs to be solved on the CPU.
+Re-tesselation of vector graphics can be computationally expensive, especially when it is inherently a serial algorithm that often needs to be solved on the CPU.
 #cite(<kokojima2006resolution>, form: "prose") combines the work of #cite(<loop2005resolution>, form: "prose") with the usage of GPU's stencil buffer by using _triangle fans_ to skip the tesselation process.
 This approch, however, does not extend to cubic Bézier segments as they might not be convex.
 #cite(<rueda2008gpu>, form: "prose") addressed this issue by implementing a fragment shader that evaluates the implicit equation of the Bézier curve to discard the pixels that fall outside it.
@@ -224,7 +224,7 @@ Vector Graphics
 
 Beneath all graphical interfaces lies the underlying code that structure and renders the visual elements.
 The two most notable approach towards creating user interface frameworks are immediate-mode graphical user interface (IMGUI) and retained-mode graphical user interface (RMGUI).
-Some popular IMGUI frameworks includes Dear IMGUI and egui @imgui @egui, while some popular RMGUI frameworks includes Xilem @xilem.
+Some popular IMGUI frameworks includes _Dear ImGui_ and _egui_ @imgui @egui, while some popular RMGUI frameworks includes Xilem @xilem.
 Although powerful, these UI frameworks strongly relies on hardcoded programming.
 
 Enter the web technologies.

@@ -22,7 +22,7 @@
 This includes geometric shapes, such as points, lines, curves, and polygons that are defined on a Cartesian plane.
 The use of vector graphics in games can be tracked way back to when computer games was first developed.
 One of the earliest examples of video game, _Tennis for Two_ as shown in @tennis-for-two uses vector graphics to render their game on a repurposed oscilloscope in 1958 @historyofgames2023.
-It was not long before video games was first commercialized during the 1970s and 1980s, with the release of vector graphics rendered games like _Space Wars_ #cite(<spacewar1997>, form: "prose"), _Battlezone_ #cite(<battlezone1980>, form: "prose"), and _Tac/Scan_ #cite(<tagscan1982>, form: "prose").
+It was not long before video games was first commercialized during the 1970s and 1980s, with the release of vector graphics rendered games like _Space Wars_, _Battlezone_, and _Tac/Scan_.
 These games showcases the potential of vector-based visuals to achieve fluid and interactive animations.
 
 #figure(
@@ -70,7 +70,7 @@ To bind interactions or animations towards a content, users would need to label 
 
 Complex content and logic would not be possible through a typical WYSIWYG editor.
 For instance, it is virtually impossible to author a custom polygon shape in the editor with custom math based animation which depends on a time value.
-This can only be achieved through code, and is often limited by the application programming interface (API) layer provided by the WYSIWYG editor.
+This can only be achieved through code, and is often limited by the API layer provided by the WYSIWYG editor.
 This creates a huge distinction between the game/UI logic and the visual representation that is needed to convey the messages.
 
 === Slow iteration time and feedback loops in development
@@ -111,14 +111,16 @@ The creation of the game will help ensure that #velyst is production ready by th
   #table(
     columns: (auto, 1fr),
     align: left,
-    [#velyst], [An interactive Typst content creator using Vello and Bevy.],
+    [#velyst],
+    [An open sourced, interactive Typst content creator using Vello and Bevy.],
+
     [#lumina], [A 2D top down fast paced objective based PvPvE game.],
   )
 ]
 
 === Tasks to be executed:
 
-+ Develop the #velyst crate.
++ Develop the open sourced #velyst crate.
   + Develop an integrated compiler for Typst content in Bevy.
   + Support hot-reloading of Typst content.
   + Support interactivity between Bevy and Typst.
@@ -171,8 +173,8 @@ The creation of the game will help ensure that #velyst is production ready by th
 === What will be done in this project:
 
 + *Typst compiler*:
-  A custom implementation of Typst compiler will be created to fit the purpose of real-time Typst content rendering.
-  This compiler should be able to re-compile Typst content on demand, allowing developers to view reflect their saved changes immediately.
+  A custom implementation of Typst compiler will be developed to fit the purpose of real-time Typst content rendering.
+  This compiler should be able to re-compile Typst content on demand, allowing developers to view and reflect their saved changes immediately.
 
 + *Vector graphics renderer*:
   The #velyst crate will allow users to generate dynamic vector graphics content which is then rendered through the Vello renderer.
@@ -196,6 +198,16 @@ The creation of the game will help ensure that #velyst is production ready by th
 + *Not a commercial game*:
   Our goal with #lumina is to create a game that demonstrates #velyst.
   It is not meant to be on par with a full on commercial game.
+
+=== Open Source License
+
+#velyst is dual-licensed under either:
+
+- MIT License (http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0 (LICENSE-APACHE or http://www.apache.org/licenses/LICENSE-2.0)
+
+This means you can select the license you prefer! This dual-licensing approach is the de-facto standard in the Rust ecosystem and there are very good reasons to include both.
+Head over to the #velyst GitHub repository (https://github.com/voxell-tech/velyst) to learn more!
 
 == Potential Benefit
 
@@ -292,13 +304,12 @@ Chapter 4 presents the findings from the questionnaire and interview analyses, e
     date,
     tasks: (
       (name: [Introduction of SDM], days: 1),
-      (name: [Phases of SDM], days: 2),
+      (name: [Methodology Choice and Justification], days: 2),
       (name: [Data Gathering Design], days: 6),
-      (name: [Research Methodology], days: 2),
-      (name: [Design of Questionnaire], days: 3),
-      (name: [Design of Interview], days: 3),
-      (name: [Analysis of Questionnaire], days: 3),
-      (name: [Analysis of Interview], days: 3),
+      (name: [Questionnaire Design ], days: 3),
+      (name: [Interview Design ], days: 4),
+      (name: [Questionnaire Analysis], days: 3),
+      (name: [Interview Analysis], days: 3),
       (name: [Summary], days: 1),
     ),
   )
