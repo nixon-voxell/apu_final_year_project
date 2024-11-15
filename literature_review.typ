@@ -239,7 +239,7 @@ Typst’s approach enables greater flexibility by supporting complex scripting a
 This shift towards more programmable, reusable, and adaptable UI frameworks opens new possibilities for creating responsive and user-driven interfaces in modern applications.
 
 Altogether, advancements in both rasterization and content creation tools continue to drive the development of modern game environments.
-As these technologies progress, game engines can offer more sophisticated and seamless graphical experiences, enabling developers to balance aesthetic quality with technical efficiency and bringing richer visual and interactive elements into the gaming space.
+As these technologies progress, game engines can offer more sophisticated and seamless graphical experiences, enabling developers to balance aesthetic quality with technical efficiency and bringing richer visual and interactive elements into games.
 
 #pagebreak()
 

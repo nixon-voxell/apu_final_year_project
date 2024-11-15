@@ -32,7 +32,7 @@ These games showcases the potential of vector-based visuals to achieve fluid and
 
 Around this time, graphical processing units (GPU) were also experiencing rapid development and growth.
 In 1989, Silicon Graphics Inc. (SGI) created one of the earliest graphics application programming interfaces (API) OpenGL, which forms the foundation of today’s computer graphics software @evolutiongpu2004.
-As GPU advanced, support for raster graphics improved significantly, leading to a decline in the use of vector-based rendering technology in gaming @vectoringaming.
+As GPU advanced, support for raster graphics improved significantly, leading to a decline in the use of vector-based rendering technology in games @vectoringaming.
 
 Despite the rise of raster graphics, the unique benefits of vector graphics (scalability and precision) continue to offer significant potential in modern game environments.
 Today, vector graphics are rendered using high resolution monitors through the process of rasterization @tian2022survey.
