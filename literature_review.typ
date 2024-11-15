@@ -6,31 +6,46 @@
 
 === Introduction
 
-Vector graphics are increasingly valuable in game development due to their scalability and precision, yet their integration into real-time game engines involves distinct technical challenges.
-Unlike raster images, which degrade when resized, vector graphics are resolution-independent, making them ideal for various screen sizes and resolutions.
-This advantage, however, comes at the cost of more complex rendering requirements, as vector graphics must undergo a rasterization phase to translate their shapes into pixels for display.
-The demands of real-time rendering make this process particularly intricate, as maintaining both high visual quality and performance can be challenging.
+Vector graphics is a form of computer graphics where visual images are generated using mathematical formulae @rick2024vector.
+This includes geometric shapes, such as points, lines, curves, and polygons that are defined on a Cartesian plane.
+The use of vector graphics in games can be tracked way back to when computer games was first developed.
+One of the earliest examples of video game, Tennis for Two as shown in @tennis-for-two uses vector graphics to render their game on a repurposed oscilloscope in 1958 @historyofgames2023 @rick2024vector.
+It was not long before video games was first commercialized during the 1970s and 1980s, with the release of vector graphics rendered games like Space Wars (1977), Battlezone (1980), and Tac/Scan (1982) @rick2024vector.
+These games showcases the potential of vector-based visuals to achieve fluid and interactive animations.
 
-To address the performance demands of rasterization in game engines, various rendering techniques have been developed to streamline this process.
-Efficient rasterization methods help achieve the fast rendering speeds required for interactive applications, while ensuring that image quality remains high.
-Techniques focused on converting vector shapes into compatible formats for real-time processing have allowed developers to create more responsive and visually detailed graphics without a loss in performance.
-These approaches improve frame rates and visual fidelity, making vector graphics a practical choice in game settings where performance is essential.
+#figure(
+  image("assets/Tennis for Two.png"),
+  caption: [Tennis for Two @tennis1958],
+) <tennis-for-two>
 
-In addition to advances in rasterization, the tools used for creating and managing graphical content have also evolved.
-Modern UI frameworks play a foundational role in constructing interactive experiences, providing developers with ways to structure and style visual elements effectively.
-The shift towards markup languages and programmable typesetting has made it easier for teams to collaborate and iterate on designs, fostering a more flexible workflow.
-This evolution has supported the creation of more dynamic visual components that can be reused and customized, enhancing user engagement and experience.
+Around this time, graphical processing units (GPU) were also experiencing rapid development and growth.
+In 1989, Silicon Graphics Inc. (SGI) created one of the earliest graphics application programming interfaces (API) OpenGL, which forms the foundation of today’s computer graphics software @evolutiongpu2004.
+As GPU advanced, support for raster graphics improved significantly, leading to a decline in the use of vector-based rendering technology in games @vectoringaming.
 
-This review provides a foundation for analyzing the technical aspects of vector graphic rasterization and content creation tools, highlighting how these technologies can drive efficiency, scalability, and visual impact in game design and interactive media.
+Despite the rise of raster graphics, the unique benefits of vector graphics (scalability and precision) continue to offer significant potential in modern game environments.
+Today, vector graphics are rendered using high resolution monitors through the process of rasterization @tian2022survey.
+This necessity led to the rise of algorithms specifically designed to convert mathematically defined shapes into pixels, creating a new domain of computational challenges.
+In addition, there is little to no tool available that effectively integrates vector graphics content into real-time, interactive game environments.
+The absence of such tools has hindered the widespread adoption of vector graphics in modern game development, limiting their use to methods like triangulation and sign distance field due to technical constraints @drawinglines2015 @alvin2020rendering.
 
 #pagebreak()
 
 === Rasterization of vector graphics
 
-Vector graphics are often used in situations where scalability and precision are essential.
-This property comes with a cost.
-As mentioned in the previous chapter, rendering vector graphics in today's era requires a rasterization phase.
-Solving for this phase is non-trivial as it is often required to compute a partial differential equation (PDE) @tian2022survey.
+Display devices (e.g. monitors and televisions) are the primary medium for displaying dynamic graphical content in modern computing.
+These devices operate by illuminating small units called pixels, arranged in a grid, to form images @display2022.
+Each pixel can emit a specific color as shown in @pixels, and together, millions of these pixels create the visuals we see on screen.
+The clarity of an image on a monitor is determined by its resolution, which defines the number of pixels displayed horizontally and vertically.
+Higher resolutions allow for finer details, but this also requires more computational power to manage and render the visuals effectively @resolution2023.
+Over the years, three primary technologies have been used to render images on display screens: Cathode Ray Tube (CRT), Liquid Crystal Display (LCD), and Light-emitting Diode (LED) @display2022.
+
+#figure(caption: [What do pixels look like @display2022])[
+  #image("assets/pixels.png", height: 240pt)
+]<pixels>
+
+Displaying vector graphics on these displays requires a process known as rasterization.
+Rasterizing vector graphics involves converting mathematical paths and shapes into pixel-based images that can be displayed on screens.
+Solving for this process is non-trivial, as it is often required to compute a partial differential equation (PDE) @tian2022survey.
 
 One method for rasterizing vector graphics is scaline rendering.
 Scanline rendering is the process of shooting rays from one side of the screen to the other while coloring pixels in between based on collision checkings with paths in between.
@@ -50,7 +65,7 @@ This allows for extreme zoom levels without sacrificing qualities.
   #image("assets/triangle-fan.png", height: 240pt)
 ] <triangle-fan>
 
-Re-tesselation of vector graphics can be computationally expensive, especially when it is inherently a serial algorithm that often needs to be solved on the CPU.
+Re-tesselation of vector graphics can be computationally expensive, especially when it is inherently a serial algorithm that often needs to be solved on the Central Processing Unit (CPU).
 #cite(<kokojima2006resolution>, form: "prose") combines the work of #cite(<loop2005resolution>, form: "prose") with the usage of GPU's stencil buffer by using triangle fans to skip the tesselation process as shown in @triangle-fan.
 This approch, however, does not extend to cubic Bézier segments as they might not be convex.
 #cite(<rueda2008gpu>, form: "prose") addressed this issue by implementing a fragment shader that evaluates the implicit equation of the Bézier curve to discard the pixels that fall outside it.
@@ -76,7 +91,17 @@ Vector Graphics
 
 === Immediate mode and retained mode
 
+Graphical user interfaces (GUI) are integral to modern software, providing users with intuitive ways to interact with applications across a range of devices @gui2024.
+GUIs represent software functionality using graphical elements like buttons, sliders, icons, and menus instead of relying on text-based commands as shown in @gui.
+From smartphones and computers to ATMs and gaming consoles, GUIs have become the standard for interacting with modern technology.
+They are designed to provide a seamless, visually engaging experience that bridges the gap between users and the complex operations running behind the scenes.
+
+#figure(caption: [Modern GUIs @gui2024])[
+  #image("assets/guis.png")
+] <gui>
+
 Beneath all graphical interfaces lies the underlying code that structures and renders the visual elements.
+A GUI has a lot of states to manage as it can be highly dynamic and might contain complex user interactions @ecsui2018.
 The two approaches towards creating user interface frameworks are immediate-mode graphical user interface (IMGUI) and retained-mode graphical user interface (RMGUI).
 Some open sourced IMGUI frameworks includes Dear ImGui and Egui, while open sourced RMGUI frameworks includes Xilem and Qt.
 Although powerful, these UI frameworks strongly relies on hardcoded programming.
@@ -85,7 +110,7 @@ In contrast, the immediate-mode application reconstruct its frame in every updat
 This makes retained-mode useful for applications that does not require high dynamic changes or devices that require low power consumption and vice versa @rmvsim2021.
 In the article by #cite(<rmguivsimgui2019>, form: "prose"), the authors also stated that while retained-mode APIs are generally easier to use, they often come with higher memory demands and offer less flexibility than their immediate-mode counterparts.
 
-#figure(supplement: "Code", caption: "Egui code example (imperative)")[
+#figure(kind: image, caption: "Egui code example (imperative)")[
   ```rs
   ui.heading("My egui Application");
   ui.horizontal(|ui| {
@@ -101,7 +126,7 @@ In the article by #cite(<rmguivsimgui2019>, form: "prose"), the authors also sta
   ```
 ] <egui-code>
 
-#figure(supplement: "Code", caption: "Xilem code example (declarative)")[
+#figure(kind: image, caption: "Xilem code example (declarative)")[
   ```rs
   struct AppData {
     count: u32,
@@ -141,7 +166,7 @@ With style sheets, developers can create, share, and reuse templates, enhancing 
     gutter: 6pt,
     align: bottom,
     [
-      #figure(supplement: "Code", caption: "HTML example")[
+      #figure(kind: image, caption: "HTML example")[
         ```html
         <!DOCTYPE html>
         <html>
@@ -157,7 +182,7 @@ With style sheets, developers can create, share, and reuse templates, enhancing 
       ] <html-code>
     ],
     [
-      #figure(supplement: "Code", caption: "CSS example")[
+      #figure(kind: image, caption: "CSS example")[
         ```css
         /* styles.css */
         body {
@@ -184,7 +209,7 @@ These features are often delegated to the programmer which can lead to unintende
 For example, if you want a form to disappear after button press, you would need to alter the HTML via code.
 Typst offers an alternative towards this problem by introducing programming capabilities into markup @madje2022programmable.
 
-#figure(supplement: "Code", caption: "LaTeX example")[
+#figure(kind: image, caption: "LaTeX example")[
   ```latex
   \documentclass{article}
   \begin{document}
@@ -200,7 +225,7 @@ Using the previous example, developers would only need to pass in a boolean valu
 In the Typst ecosystem, developers gain enhanced flexibility by sharing their work as packages.
 Unlike templates, Typst packages support complex scripting, offering greater adaptability and expanded functionality.
 
-#figure(supplement: "Code", caption: "Typst example")[
+#figure(kind: image, caption: "Typst example")[
   ```typ
   #let values = (1, 2, 3, 4)
   #values.pop() \
@@ -224,7 +249,7 @@ Interactive UI/UX
 
 #pagebreak()
 
-=== Summary of key findings
+=== Summary
 
 The exploration of rasterization techniques for vector graphics underscores the complexity and potential of rendering mathematically defined shapes in real-time applications.
 Vector graphics are valued for their scalability and precision, but rendering them on modern displays requires the conversion into pixel-based formats through processes like scanline rendering and tessellation.
@@ -268,7 +293,7 @@ The UXML is tailored in such a way that is efficient to work with the Unity game
     align: bottom,
     gutter: 10pt,
   )[
-    #figure(supplement: "Code", caption: "UXML example")[
+    #figure(kind: image, caption: "UXML example")[
       ```html
       <?xml version="1.0" encoding="utf-8"?>
       <ui:UXML ...>
@@ -278,7 +303,7 @@ The UXML is tailored in such a way that is efficient to work with the Unity game
       ```
     ] <uxml-code>
   ][
-    #figure(supplement: "Code", caption: "USS example")[
+    #figure(kind: image, caption: "USS example")[
       ```css
       /* styles.uss */
       #root {
@@ -375,6 +400,23 @@ Both frameworks cater to different development needs, and choosing between them 
 
 == Technical Research
 
+=== Rust - Programming Language
+
+#figure(caption: "Rust Logo")[
+  #image("assets/rust.svg")
+]
+
+Rust is a systems programming language designed for performance, reliability, and safety @loverust2023.
+It is statically typed and compiles to native code, making it ideal for high-performance applications, such as game engines, operating systems, and embedded systems.
+Rust’s primary feature is its ownership system, which ensures memory safety without the need for a garbage collector.
+This system eliminates common issues like null pointer dereferencing, data races, and memory leaks, all of which are common in languages like C and C++.
+
+Rust’s memory safety, concurrency capabilities, and zero-cost abstractions make it a strong choice for developing high-performance game engines.
+Additionally, Rust’s ecosystem provides robust libraries and frameworks like Bevy for game development and wgpu for graphics programming.
+The language’s modern tooling, including the cargo package manager and rustfmt for code formatting, helps developers maintain efficient and clean codebases.
+
+#pagebreak()
+
 === Bevy - Game Engine
 
 #figure(caption: "Bevy Logo")[
@@ -386,20 +428,17 @@ It is designed to be modular with its robust plug-in system, simple to use with 
 In the article, the founder claim that Bevy's ECS is the most ergonomic ECS in existence @introbevy2020.
 As shown in @bevy-code, users can create a fully working Bevy application with just a few lines of code:
 
-#figure(supplement: "Code", caption: "Bevy example")[
+#figure(kind: image, caption: "Bevy example")[
   ```rs
   use bevy::prelude::*;
 
-  #[derive(Component)]
-  struct Position(f32);
-
   fn setup(mut commands: Commands) {
-    commands.spawn(Position(0.0));
+    commands.spawn(Transform::default());
   }
 
-  fn movement(mut q_positions: Query<&mut Position>, time: Res<Time>) {
-    for mut pos in q_positions {
-      pos.0 += 1.0 * time.delta_seconds();
+  fn movement(mut q_transforms: Query<&mut Transform>, time: Res<Time>) {
+    for mut transform in q_transforms {
+      transform.x += 1.0 * time.delta_seconds();
     }
   }
 
@@ -471,7 +510,7 @@ Wgpu runs natively on Vulkan, Metal, DirectX 12, and OpenGL ES; and browsers via
 
 #pagebreak()
 
-=== Typst
+=== Typst - Typesetting
 
 #figure(caption: "Typst logo")[
   #image("assets/typst-logo.png", height: 160pt)

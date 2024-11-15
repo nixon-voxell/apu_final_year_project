@@ -5,9 +5,9 @@
   nth(date.day(), sup: true) + date.display(" of [month repr:long] [year]")
 )
 
-= INTRODUCTION <intro>
+= INTRODUCTION
 
-== Introduction
+== Problem Background
 
 // Chapter 1 of the report is an important chapter since it describes the overall project and its outcome.
 // As this is the first chapter that the evaluators will read, it is essential to make a good first impression.
@@ -18,27 +18,18 @@
 // This project addresses two major challenges in modern game development: creating dynamic, interactive user experiences and implementing accurate, real-time lighting models.
 // Tackling these challenges requires two key innovations: a compute-centric vector graphics renderer and a programmable approach for developing interactive content.
 
-*Vector graphics* is a form of computer graphics where visual images are generated using mathematical formulae @rick2024vector.
-This includes geometric shapes, such as points, lines, curves, and polygons that are defined on a Cartesian plane.
-The use of vector graphics in games can be tracked way back to when computer games was first developed.
-One of the earliest examples of video game, _Tennis for Two_ as shown in @tennis-for-two uses vector graphics to render their game on a repurposed oscilloscope in 1958 @historyofgames2023.
-It was not long before video games was first commercialized during the 1970s and 1980s, with the release of vector graphics rendered games like _Space Wars_, _Battlezone_, and _Tac/Scan_.
-These games showcases the potential of vector-based visuals to achieve fluid and interactive animations.
+The rapid evolution of game development and interactive media demands tools that can deliver high-quality visuals, dynamic interactivity, and optimal performance.
+While raster graphics have been the dominant standard for visual content, they often lack scalability and flexibility, particularly for modern applications that require diverse screen resolutions and fluid adaptability.
+This has led to an increasing interest in vector graphics, known for their scalability, precision, and lightweight nature.
 
-#figure(
-  image("assets/Tennis for Two.png"),
-  caption: [Tennis for Two @tennis1958],
-) <tennis-for-two>
+Despite their advantages, vector graphics remain underutilized in real-time game engines, with limited support and optimization compared to rasterized approaches.
+Challenges such as high computational requirements, technical integration complexities, and performance overhead have deterred developers from fully exploring their potential.
+Additionally, creating a seamless workflow for integrating dynamic vector content into real-time environments poses further hurdles.
 
-Around this time, graphical processing units (GPU) were also experiencing rapid development and growth.
-In 1989, Silicon Graphics Inc. (SGI) created one of the earliest graphics application programming interfaces (API) OpenGL, which forms the foundation of today’s computer graphics software @evolutiongpu2004.
-As GPU advanced, support for raster graphics improved significantly, leading to a decline in the use of vector-based rendering technology in games @vectoringaming.
+This research seeks to address these challenges by examining the role of vector graphics in game engines, identifying technical limitations, and proposing a framework that enhances their use in real-time interactive environments.
+By bridging the gap between technological capabilities and developer needs, this study aims to unlock new possibilities for high-quality, dynamic content in games and interactive media.
 
-Despite the rise of raster graphics, the unique benefits of vector graphics (scalability and precision) continue to offer significant potential in modern game environments.
-Today, vector graphics are rendered using high resolution monitors through the process of rasterization @tian2022survey.
-This necessity led to the rise of algorithms specifically designed to convert mathematically defined shapes into pixels, creating a new domain of computational challenges.
-In addition, there is little to no tool available that effectively integrates vector graphics content into real-time, interactive game environments.
-The absence of such tools has hindered the widespread adoption of vector graphics in modern game development, limiting their use to methods like triangulation @drawinglines2015 and sign distance field @alvin2020rendering due to technical constraints.
+#pagebreak()
 
 == Problem Statement
 

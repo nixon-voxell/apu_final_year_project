@@ -107,7 +107,7 @@ Structured in a way that includes multiple-choice questions, Likert scales, and 
 This design helps to capture both objective data and individual nuances within responses, which can be further analyzed to identify general patterns and correlations.
 Additionally, the anonymity provided in the questionnaire encourages honest and diverse opinions from a range of backgrounds, helping to avoid biases that might be present in more direct methods of data collection.
 
-Complementing the questionnaire, the interview component will provide a more nuanced, qualitative perspective by engaging directly with professionals who possess specialized knowledge or expertise in the area of study.
+Complementing the questionnaire, the interview component will provide a more nuanced, qualitative perspective by engaging directly with subject matter experts who possess specialized knowledge or expertise in the area of study.
 The interviews are designed to gather deeper insights that would not typically be captured in a standardized questionnaire.
 Conducted in a semi-structured format, the interview will allow for flexibility, enabling the researcher to probe further into responses based on the interviewee’s expertise.
 This format encourages participants to share their informed opinions, elaborate on complex ideas, and provide practical examples, thus enriching the data with professional and real-world insights @dewi2021understanding.
@@ -395,6 +395,8 @@ These insights will help inform the design of an effective framework and guide f
     ),
   ),
 )
+
+#pagebreak()
 
 == Analysis
 

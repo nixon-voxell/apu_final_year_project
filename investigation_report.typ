@@ -29,16 +29,17 @@
   v(14pt, weak: true)
   strong(it)
 }
-#show heading: it => {
-  if it.level > 2 {
-    underline(it.body)
-  } else {
-    it
-  }
-}
 #show raw: it => {
   set text(fill: base7, size: 8pt)
   box(it, fill: base0, inset: 1.5em, radius: 1em)
+}
+#show cite: it => {
+  if it.form == "prose" {
+    show "&": "and"
+    it
+  } else {
+    it
+  }
 }
 
 #align(center)[= Acknowledgement]
@@ -80,13 +81,9 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Compute-centric, 
 
 #outline(title: "Figures", target: figure.where(kind: image))
 
-// #pagebreak()
+#pagebreak()
 
 #outline(title: "Tables", target: figure.where(kind: table))
-
-// #pagebreak()
-
-#outline(title: "Codes", target: figure.where(kind: raw))
 
 #pagebreak()
 
@@ -108,11 +105,11 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Compute-centric, 
 
 #show heading.where(level: 1): set heading(numbering: none)
 
-= References
-
-= Appendices
-
 #pagebreak()
 
 = References
 #bibliography("citation.bib", style: "apa", title: none)
+
+#pagebreak()
+
+= Appendices
