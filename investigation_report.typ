@@ -62,7 +62,7 @@ This project introduces #velyst, a streamlined framework for integrating interac
 It leverages Typst for vector content creation and Vello for real-time rendering of dynamic vector graphics.
 By simplifying the process, this framework enables developers to produce high-quality and engaging content without needing to delve deeply into technical complexities.
 Our study employs purposive sampling to collect valuable insights from developers in the gaming and interactive application sectors.
-We will conduct three in-depth interviews with industry professionals to gain expert perspectives.
+We will conduct seven in-depth interviews with industry professionals to gain expert perspectives.
 Additionally, online survey questionnaires will be distributed to a broader developer audience to capture a wider range of opinions.
 This uncovers the challenges and opportunities of integrating vector graphics, with insights that contributes to the framework on reducing technical barriers, enhancing interactivity, and highlighting areas for further innovation in the field.
 This research aims to demonstrate the untapped potential of vector graphics in modern gaming and provide a practical solution for their seamless integration.

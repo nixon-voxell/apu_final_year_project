@@ -359,7 +359,7 @@ These insights will help inform the design of an effective framework and guide f
       obj: "Research Objective 2",
     ),
     (
-      quest: "What are some common challenges or frustrations you encounter with current graphics tools or technologies during development?",
+      quest: "What are some challenges or frustrations you encounter with current graphics tools or technologies during development?",
       just: "Understand pain points that could reveal technical limitations or unmet needs in vector and motion graphics workflows.",
       obj: "Research Objective 3",
     ),
@@ -379,7 +379,7 @@ These insights will help inform the design of an effective framework and guide f
       obj: "Research Objective 2",
     ),
     (
-      quest: "What would you like to see improved in existing tools for integrating vector or motion graphics in real-time applications or games?",
+      quest: "What would you like to see improved in existing tools or new tools for integrating vector or motion graphics in real-time applications or games?",
       just: "Identify specific feature or functionality gaps in current technologies.",
       obj: "Research Objective 3",
     ),
@@ -389,7 +389,7 @@ These insights will help inform the design of an effective framework and guide f
       obj: "Research Objective 1",
     ),
     (
-      quest: "Do you have any specific feedback or suggestions that could help streamline the workflow of incorporating dynamic vector or motion graphics in game engines or real-time applications?",
+      quest: "Do you have any feedbacks or suggestions that could help streamline the workflow of incorporating dynamic vector or motion graphics in game engines or real-time applications?",
       just: "Solicit practical suggestions to improve workflows, targeting a user-centered design approach.",
       obj: "Research Objective 2 and 3",
     ),
