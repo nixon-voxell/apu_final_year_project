@@ -44,10 +44,16 @@
 
 #align(center)[= Acknowledgement]
 
-I would like to express my heartfelt gratitude to everyone who supported me throughout the development of #velyst and the #lumina game.
-First, I am deeply thankful to my teammates, whose dedication, collaboration, and creativity were essential in bringing this project to completion.
+I would like to express my heartfelt gratitude to everyone who supported me throughout the development of the project.
+First, I am deeply thankful to my teammates, whose dedication, collaboration, and creativity which were instrumental in bringing this project to life.
+Their ability to work together, solve problems, and push boundaries made all the difference.
 
 I also wish to extend my sincerest thanks to my supervisors, Mr. Jacob Sow Tian You and Assoc. Prof. Ts. Dr. Tan Chin Ike, for their invaluable guidance, insights, and encouragement throughout this journey.
+
+I would also like to express my deepest gratitude to the open-source communities behind Bevy, Typst, and Linebender (Vello).
+Their incredible work and commitment to open collaboration provided the tools, inspiration, and support that made this project possible.
+The countless contributions, whether through libraries, documentation, or community discussions, were invaluable to overcoming technical challenges and advancing the development of the project.
+I am profoundly grateful to have had the opportunity to learn from and contribute to them.
 
 Finally, I would like to thank my family and friends for their unwavering support and belief in me, which provided the motivation I needed to persevere through challenges.
 This project would not have been possible without each of you.

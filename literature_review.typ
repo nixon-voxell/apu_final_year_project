@@ -344,7 +344,7 @@ Egui is a cross-platform UI library @startegui2023.
 #cite(<startegui2023>, form: "prose") noted in the article that Egui is built on top of WebGPU technology.
 This enables it to run on both native platforms like Windows, Linux, and Mac, as well as in the browser, in the form of Web Assembly (WASM).
 Users can also integrate it into custom or existing game engines, custom native applications, web applications, etc.
-It is also highly inspired by Dear ImGui from the C++ world @tryingegui2024.
+It is also highly inspired by Dear ImGui from the #box[C++] world @tryingegui2024.
 
 Moreover, Egui supports extensibility by allowing users to create and integrate custom components, providing additional flexibility and customization options.
 When it comes to drawing capabilities, Egui offers built-in support for rendering vector graphics, including complex elements like Bézier curves, basic shapes, and geometric primitives, as noted by #cite(<startegui2023>, form: "prose").
@@ -388,7 +388,7 @@ This absence means that UI creation and design adjustments must be handled direc
 
 #pagebreak()
 
-=== Conclusion
+=== Summary
 
 In summary, both frameworks offer valuable advantages within their respective domains.
 Unity UI Toolkit excels within the Unity ecosystem, providing structured, easily manageable UI elements and a design-friendly interface that streamlines collaboration.
@@ -409,7 +409,7 @@ Both frameworks cater to different development needs, and choosing between them 
 Rust is a systems programming language designed for performance, reliability, and safety @loverust2023.
 It is statically typed and compiles to native code, making it ideal for high-performance applications, such as game engines, operating systems, and embedded systems.
 Rust’s primary feature is its ownership system, which ensures memory safety without the need for a garbage collector.
-This system eliminates common issues like null pointer dereferencing, data races, and memory leaks, all of which are common in languages like C and C++.
+This system eliminates common issues like null pointer dereferencing, data races, and memory leaks, all of which are common in languages like C and #box[C++].
 
 Rust’s memory safety, concurrency capabilities, and zero-cost abstractions make it a strong choice for developing high-performance game engines.
 Additionally, Rust’s ecosystem provides robust libraries and frameworks like Bevy for game development and wgpu for graphics programming.
@@ -513,7 +513,7 @@ Wgpu runs natively on Vulkan, Metal, DirectX 12, and OpenGL ES; and browsers via
 === Typst - Typesetting
 
 #figure(caption: "Typst logo")[
-  #image("assets/typst-logo.png", height: 160pt)
+  #image("assets/typst-logo.png", height: 120pt)
 ]
 
 Typst has been mentioned multiple times in this paper.
