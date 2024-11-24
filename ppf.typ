@@ -202,7 +202,7 @@ Re-tesselation of vector graphics can be computationally expensive, especially w
 #cite(<kokojima2006resolution>, form: "prose") combines the work of #cite(<loop2005resolution>, form: "prose") with the usage of GPU's stencil buffer by using _triangle fans_ to skip the tesselation process.
 This approch, however, does not extend to cubic Bézier segments as they might not be convex.
 #cite(<rueda2008gpu>, form: "prose") addressed this issue by implementing a fragment shader that evaluates the implicit equation of the Bézier curve to discard the pixels that fall outside it.
-The two-step "Stencil then Cover" (StC) method builds upon all of these work and unified path rendering with OpenGL's shading pipeline --- #text(font: "Consolas")[NV_path_rendering] @kilgard2012gpu.
+The two-step "Stencil then Cover" (StC) method builds upon all of these work and unified path rendering with OpenGL's shading pipeline --- #text(font: "Consolas")[`NV_path_rendering` @kilgard2012gpu.
 This library was further improved upon by adding support for transparency groups, patterns, gradients, more color spaces, etc. @batra2015accelerating.
 It was eventually integrated into Adobe Illustrator.
 

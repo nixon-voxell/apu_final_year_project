@@ -29,7 +29,7 @@
 
   #linebreak()
 
-  A report submitted in partial fulfilment of the requirements for the degree of
+  A report submitted in partial fulfillment of the requirements for the degree of
 
   BSc (Hons) Computer Games Development
 

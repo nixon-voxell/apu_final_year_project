@@ -43,7 +43,7 @@ By bridging the gap between technological capabilities and developer needs, this
 Traditional methods of rendering 2D graphics has always relied on bitmap-based texture mapping @ray2005vector.
 While this approach is ubiquitous, it suffers a major drawback of the _pixelation_ effect when being scaled beyond the original resolution @nehab2008random.
 Furthermore, creating animations using bitmap-based textures can be extremely limited and complex because of the rigid grid-like data structure used to store the data.
-Animating raster graphics are commonly done through the use of fragment shaders which directly manipulates individual pixels @jeremias2014shadertoy, or relying on image sequences (a.k.a flipbooks) @flipbook2016 which produces an illusion of movement.
+Animating raster graphics are commonly done through the use of fragment shaders which directly manipulates individual pixels, or relying on image sequences (a.k.a flipbooks) which produces an illusion of movement @jeremias2014shadertoy @flipbook2016.
 
 Unlike raster graphics which rely on a fixed grid of pixels, vector graphics are precise and resolution independent.
 This means that it can scale without losing quality (shown in @vector-vs-raster).
@@ -54,8 +54,8 @@ This property allows vector animations to be generated procedurally instead of r
 
 === Lack of support on UI/UX creation for complex interactivity
 
-WYSIWYG editors are visual centric tools that let users work directly within the presentation form of the content @madje2022programmable.
-Most game engines in the market like Unity @jacobsen2023, Unreal Engine @unrealui2023, and Godot @godotui2024 uses a _What You See Is What You Get_ (WYSIWYG) editor for creating user interfaces (UI) and user experiences (UX).
+_What You See Is What You Get_ (WYSIWYG) editors are visual centric tools that let users work directly within the presentation form of the content @madje2022programmable.
+Most game engines in the market like Unity, Unreal Engine, and Godot uses a WYSIWYG editor for creating user interfaces (UI) and user experiences (UX) @jacobsen2023 @unrealui2023 @godotui2024.
 In WYSIWYG editors, users normally layout their contents using a drag and drop method and then style them using a style-sheet @wysiwyg2023.
 To bind interactions or animations towards a content, users would need to label it with a unique tag and query them through code.
 
@@ -66,8 +66,8 @@ This creates a huge distinction between the game/UI logic and the visual represe
 
 === Slow iteration time and feedback loops in development
 
-While hot-reloading is applicable for the layout and styling (and simple logic to some extend) of a content.
-In an Unreal Engine UI tutorial titled "UMG Best Practices" by #cite(<umgpractices2019>, form: "prose"), the author concluded that logic should be kept in the C++ language and Unreal Blueprints.
+While hot-reloading is applicable for the layout and styling (and simple logic to some extent) of a content.
+In an Unreal Engine UI tutorial titled "UMG Best Practices" by #cite(<umgpractices2019>, form: "prose"), the author concluded that logic should be kept in the C++ language (code) and Unreal Blueprints (visual scripting).
 It showcases that a WYSIWYG editor would not be capable of hot-reloading complex logic as these can only be achieved using code, which in most cases, requires a re-compilation.
 This could lead to frustration and lost of creativity due to the slow feedback loop.
 
@@ -105,11 +105,11 @@ The creation of the game will help ensure that #velyst is production ready by th
     [#velyst],
     [An open sourced, interactive Typst content creator using Vello and Bevy.],
 
-    [#lumina], [A 2D top down fast paced objective based PvPvE game.],
+    [#lumina], [A 2D top down fast-paced objective based PvPvE game.],
   )
 ]
 
-=== Tasks to be executed:
+=== Tasks to be executed
 
 + Develop the open sourced #velyst crate.
   + Develop an integrated compiler for Typst content in Bevy.
@@ -136,8 +136,8 @@ The creation of the game will help ensure that #velyst is production ready by th
     [
       Our project uses multiple cutting-edge and innovative technologies.
       This means that some of the technologies we depend on might be experimental or have yet to stabilize.
-      This makes it difficult to ensure cross platform / device compatibility for the systems we built.
-      For example, Vello requires compute shaders to render vector graphics, which means it can only runs on newer versions of browsers that supports WebGPU.
+      This makes it difficult to ensure cross-platform / device compatibility for the systems we built.
+      For example, Vello requires compute shaders to render vector graphics, which means it can only run on newer versions of browsers that support WebGPU.
     ],
 
     [*Limited\ Documentation*],
@@ -161,7 +161,7 @@ The creation of the game will help ensure that #velyst is production ready by th
   )
 ]
 
-=== What will be done in this project:
+=== What will be done in this project
 
 + *Typst compiler*:
   A custom implementation of Typst compiler will be developed to fit the purpose of real-time Typst content rendering.
@@ -174,7 +174,7 @@ The creation of the game will help ensure that #velyst is production ready by th
   #lumina will be developed to showcase all of the above in a compact game format.
   Players will experience realistic and beautiful 2D lighting, as well as interactive vector graphics UI elements.
 
-=== What will not be done in this project:
+=== What will not be done in this project
 
 + *Not creating an animation library*:
   An animation library involves preparing a huge variety of common animation effects.
@@ -225,18 +225,29 @@ Head over to the #velyst GitHub repository (https://github.com/voxell-tech/velys
 #velyst will particularly be targeted towards UI/UX developers, motion graphics creators, and vector graphics enthusiasts.
 Because #velyst is built on top of Rust and Bevy, the general users will come from the Rust and Bevy community.
 
-As for #lumina, the target audience are gamers who loves fast paced multipalyer games like _Apex Legends_ and _Astro Duel 2_.
+As for #lumina, the target audience are gamers who love fast-paced multiplayer games like _Apex Legends_ and _Astro Duel 2_.
 It will particularly appeal to gamers who love the mix of competitive PvP and PvE like _Destiny 2_′s Gambit game mode and _World War Z_.
 
 == Overview of the IR
 
-This investigation report explores the establishment of a framework for integrating interactive and dynamic vector graphics in real-time video games. The project begins by providing a comprehensive introduction, outlining the context and background of the problem, where vector graphics, despite their scalability and precision, remain underutilized in modern game environments. This is followed by an articulation of the research aim, objectives, and scope, along with the potential benefits of the study. The introductory section concludes with an overview of the research design and project plan, setting the stage for a systematic investigation into the viability and advantages of vector graphics in real-time gaming contexts.
+This investigation report explores the establishment of a framework for integrating interactive and dynamic vector graphics in real-time video games.
+The project begins by providing a comprehensive introduction, outlining the context and background of the problem, where vector graphics, despite their scalability and precision, remain underutilized in modern game environments.
+This is followed by an articulation of the research aim, objectives, and scope, along with the potential benefits of the study.
+The introductory section concludes with an overview of the research design and project plan, setting the stage for a systematic investigation into the viability and advantages of vector graphics in real-time gaming contexts.
 
-The literature review, presented in Chapter 2, delves into domain-specific research and technical explorations relevant to vector graphics and their application in game development. This section examines similar systems and related technologies, allowing for a comparison of existing approaches and identifying gaps within the current state of the art. Additionally, technical research focuses on the computational and algorithmic challenges posed by real-time vector graphics rendering, which informs the subsequent methodology and framework design. This chapter concludes with a summary that synthesizes the key insights from the literature, shaping the foundation for the methodological approach.
+The literature review, presented in Chapter 2, delves into domain-specific research and technical explorations relevant to vector graphics and their application in game development.
+This section examines similar systems and related technologies, allowing for a comparison of existing approaches and identifying gaps within the current state of the art.
+Additionally, technical research focuses on the computational and algorithmic challenges posed by real-time vector graphics rendering, which informs the subsequent methodology and framework design.
+This chapter concludes with a summary that synthesizes the key insights from the literature, shaping the foundation for the methodological approach.
 
-In Chapter 3, the methodology outlines the structured approach taken to develop and validate the proposed framework. Beginning with an introduction to the selected software development methodology (SDM) and its phases, this section describes the data gathering methods used to collect feedback from game developers and interactive application creators. This includes the design and execution of questionnaires and interviews, aimed at gathering insights on the practical demands and potential impacts of vector graphics within the industry. The methodology further explains the criteria for analysis, establishing a rigorous basis for interpreting the collected data.
+In Chapter 3, the methodology outlines the structured approach taken to develop and validate the proposed framework.
+Beginning with an introduction to the selected software development methodology (SDM) and its phases, this section describes the data gathering methods used to collect feedback from game developers and interactive application creators.
+This includes the design and execution of questionnaires and interviews, aimed at gathering insights on the practical demands and potential impacts of vector graphics within the industry.
+The methodology further explains the criteria for analysis, establishing a rigorous basis for interpreting the collected data.
+The next section presents the findings from the questionnaire and interview analyses, examining trends, challenges, and developer preferences for integrating vector graphics in real-time environments.
+These results inform the conclusions drawn in the final section, where the potential of vector graphics in game development is assessed alongside the strengths and limitations of the proposed framework.
 
-Chapter 4 presents the findings from the questionnaire and interview analyses, examining trends, challenges, and developer preferences for integrating vector graphics in real-time environments. These results inform the conclusions drawn in the final section, where the potential of vector graphics in game development is assessed alongside the strengths and limitations of the proposed framework. The report closes with reflections on the study's contributions, limitations, and possible directions for future research, suggesting a pathway toward broader adoption and innovation in vector-based graphics in gaming.
+Finally, the report closes in Chapter 4 with reflections on the study's contributions, limitations, and possible directions for future research, suggesting a pathway toward broader adoption and innovation in vector-based graphics in gaming.
 
 #pagebreak()
 
@@ -338,7 +349,7 @@ Chapter 4 presents the findings from the questionnaire and interview analyses, e
       table.cell(
         colspan: 4,
         align: center,
-      )[Chapter 4: Conlusion and Reflections],
+      )[Chapter 4: Conclusion],
 
       ..conclusion_plans,
     )

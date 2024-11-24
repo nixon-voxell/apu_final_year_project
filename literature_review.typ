@@ -47,29 +47,29 @@ Displaying vector graphics on these displays requires a process known as rasteri
 Rasterizing vector graphics involves converting mathematical paths and shapes into pixel-based images that can be displayed on screens.
 Solving for this process is non-trivial, as it is often required to compute a partial differential equation (PDE) @tian2022survey.
 
-One method for rasterizing vector graphics is scaline rendering.
+One method for rasterizing vector graphics is scanline rendering.
 Scanline rendering is the process of shooting rays from one side of the screen to the other while coloring pixels in between based on collision checkings with paths in between.
 A GPU based scanline rasterization method is proposed by parallelizing over boundary fragments while bulk processing non-boundary fragments as horizontal spans @li2016efficient.
 This method allows fully animated vector graphics to be rendered in interactive frame rates.
 
-#figure(caption: [Tesselation with shader evaluated curves @loop2005resolution])[
+#figure(caption: [Tessellation with shader evaluated curves @loop2005resolution])[
   #image("assets/loop-blinn.png", width: 340pt)
 ] <loop-blinn>
 
-Apart from scanline rasterization, tesselation method can also be used to convert vector graphics into triangles and then pushed to the GPU for hardware accelerated rasterization.
+Apart from scanline rasterization, tessellation method can also be used to convert vector graphics into triangles and then pushed to the GPU for hardware accelerated rasterization.
 #cite(<loop2005resolution>, form: "prose") further improved this method by removing the need of approximating curve segments into lines.
-Instead, each curve segments is evalulated in a fragment shader which can be calculated on the GPU, as shown in @loop-blinn.
+Instead, each curve segments is evaluated in a fragment shader which can be calculated on the GPU, as shown in @loop-blinn.
 This allows for extreme zoom levels without sacrificing qualities.
 
 #figure(caption: [Triangle fans @kokojima2006resolution])[
   #image("assets/triangle-fan.png", height: 240pt)
 ] <triangle-fan>
 
-Re-tesselation of vector graphics can be computationally expensive, especially when it is inherently a serial algorithm that often needs to be solved on the Central Processing Unit (CPU).
-#cite(<kokojima2006resolution>, form: "prose") combines the work of #cite(<loop2005resolution>, form: "prose") with the usage of GPU's stencil buffer by using triangle fans to skip the tesselation process as shown in @triangle-fan.
-This approch, however, does not extend to cubic Bézier segments as they might not be convex.
+Re-tessellation of vector graphics can be computationally expensive, especially when it is inherently a serial algorithm that often needs to be solved on the Central Processing Unit (CPU).
+#cite(<kokojima2006resolution>, form: "prose") combines the work of #cite(<loop2005resolution>, form: "prose") with the usage of GPU's stencil buffer by using triangle fans to skip the tessellation process as shown in @triangle-fan.
+This approach, however, does not extend to cubic Bézier segments as they might not be convex.
 #cite(<rueda2008gpu>, form: "prose") addressed this issue by implementing a fragment shader that evaluates the implicit equation of the Bézier curve to discard the pixels that fall outside it.
-The two-step "Stencil then Cover" (StC) method builds upon all of these work and unified path rendering with OpenGL's shading pipeline --- #text(font: "Consolas")[NV_path_rendering] @kilgard2012gpu.
+The two-step "Stencil then Cover" (StC) method builds upon all of these work and unified path rendering with OpenGL's shading pipeline --- `NV_path_rendering` @kilgard2012gpu.
 This library was further improved upon by adding support for transparency groups, patterns, gradients, more color spaces, etc. @batra2015accelerating.
 It was eventually integrated into Adobe Illustrator.
 
@@ -104,10 +104,10 @@ Beneath all graphical interfaces lies the underlying code that structures and re
 A GUI has a lot of states to manage as it can be highly dynamic and might contain complex user interactions @ecsui2018.
 The two approaches towards creating user interface frameworks are immediate-mode graphical user interface (IMGUI) and retained-mode graphical user interface (RMGUI).
 Some open sourced IMGUI frameworks includes Dear ImGui and Egui, while open sourced RMGUI frameworks includes Xilem and Qt.
-Although powerful, these UI frameworks strongly relies on hardcoded programming.
+Although powerful, these UI frameworks strongly relies on hard-coded programming.
 In retained-mode, the application attempts to retain its previous state as much as possible and only perform changes when necessary.
-In contrast, the immediate-mode application reconstruct its frame in every update with no states stored in between frames @rmguivsimgui2019.
-This makes retained-mode useful for applications that does not require high dynamic changes or devices that require low power consumption and vice versa @rmvsim2021.
+In contrast, the immediate-mode application reconstructs its frame in every update with no states stored in between frames @rmguivsimgui2019.
+This makes retained-mode useful for applications that do not require high dynamic changes or devices that require low power consumption and vice versa @rmvsim2021.
 In the article by #cite(<rmguivsimgui2019>, form: "prose"), the authors also stated that while retained-mode APIs are generally easier to use, they often come with higher memory demands and offer less flexibility than their immediate-mode counterparts.
 
 #figure(kind: image, caption: "Egui code example (imperative)")[
@@ -146,10 +146,10 @@ In the article by #cite(<rmguivsimgui2019>, form: "prose"), the authors also sta
 In practice, IMGUI is imperative and RMGUI is declarative as shown in @egui-code and @xilem-code.
 In imperative programming, developers define each step needed for a program to reach the desired state, specifying precisely how to display UI components.
 Declarative programming, on the other hand, allows developers to describe what should be displayed without detailing how to achieve it.
-Declarative frameworks often rely on underlying imperative code to translate high-level commands into step-by-step instructions for execution @impvdecl2022.
+Declarative frameworks often rely on underlying imperative code to translate high level commands into step-by-step instructions for execution @impvdecl2022.
 While imperative programming allows programmers to have complete control over system resources, it would eventually lead to higher complexity as projects scale, increasing the risk of bugs.
 In contrast, declarative programming minimizes state mutability by favoring more sophisticated constructs like pipelines and work graphs, which leads to better scalability to larger projects.
-However, it is important to understand the performance overhead and higher learning curve that comes with declarative programming @impvdecl2024.
+However, it is important to understand the memory overhead and higher learning curve that comes with declarative programming @impvdecl2024.
 
 #pagebreak()
 
@@ -219,7 +219,7 @@ Typst offers an alternative towards this problem by introducing programming capa
   ```
 ] <latex-code>
 
-Typst is a competitor of LaTeX (@latex-code), designed to simplify the typesetting process with a modern and intuitive approach.
+Typst is a competitor to LaTeX (@latex-code), designed to simplify the typesetting process with a modern and intuitive approach.
 Unlike its predecessors, Typst can directly embed logic (@typst-code).
 Using the previous example, developers would only need to pass in a boolean value and Typst will automatically exclude the form from being in the layout at all.
 In the Typst ecosystem, developers gain enhanced flexibility by sharing their work as packages.
@@ -412,7 +412,7 @@ Rust’s primary feature is its ownership system, which ensures memory safety wi
 This system eliminates common issues like null pointer dereferencing, data races, and memory leaks, all of which are common in languages like C and #box[C++].
 
 Rust’s memory safety, concurrency capabilities, and zero-cost abstractions make it a strong choice for developing high-performance game engines.
-Additionally, Rust’s ecosystem provides robust libraries and frameworks like Bevy for game development and wgpu for graphics programming.
+Additionally, Rust’s ecosystem provides robust libraries and frameworks like Bevy for game development and Wgpu for graphics programming.
 The language’s modern tooling, including the cargo package manager and rustfmt for code formatting, helps developers maintain efficient and clean codebases.
 
 #pagebreak()
@@ -452,7 +452,7 @@ As shown in @bevy-code, users can create a fully working Bevy application with j
   ```
 ] <bevy-code>
 
-Bevy is also cross platform.
+Bevy is also cross-platform.
 It runs on Windows, MacOS, Linux, iOS, Android, and the web.
 Although Bevy is relatively new compared to more established game engines like Unity or Unreal Engine --- having only been around for four years as of 2024 @bevybirthday2024 --- it has quickly gained attention for its modern, modular approach to game development.
 As a result, there has already been many volunteer plug-ins being developed for the game engine.
@@ -497,14 +497,14 @@ Some other projects that they developed include Xilem, Masonry, Vello, Kurbo, Pe
 ]
 
 Unlike traditional vector graphics renderer, Vello strives to off-load all of the rendering steps to the GPU via compute shaders.
-At the moment of writing this article, #cite(<vello2020>, form: "prose") stated that there are plans for Vello to support retained mode in the future, but for now, its mostly an immediate mode API.
+At the moment of writing this article, #cite(<vello2020>, form: "prose") stated that there are plans for Vello to support retained mode in the future, but for now, it is mostly an immediate mode API.
 This is actually only possible because of the performance gain that Vello obtain via parallel computing on the GPU.
 
 #figure(caption: "Wgpu logo")[
   #image("assets/wgpu-logo.svg")
 ]
 
-Part of what makes Vello so appealing is its cross platform capability.
+Part of what makes Vello so appealing is its cross-platform capability.
 Unlike many other research projects that uses CUDA as their GPU compute platform, Vello achieves portable GPU compute by utilizing the Wgpu library @velloroadmap @vello2020.
 Wgpu runs natively on Vulkan, Metal, DirectX 12, and OpenGL ES; and browsers via WebAssembly (WASM) on WebGPU and WebGL2 @wgpu.
 
