@@ -1047,3 +1047,25 @@ _Section 2: Vector graphics in games_
     ],
   ),
 ))
+
+=== Conclusion of Interview Analysis
+
+The analysis of all eight questions highlights the diverse perspectives and experiences of participants, offering valuable insights into the current state and future potential of integrating vector and motion graphics into real-time applications and games.
+
+Participants’ backgrounds demonstrate a blend of UI/UX design, game development, and technical research, which informs their varied workflows.
+While some rely on traditional design tools like Figma and After Effects, others prefer programming-centric approaches tailored to specific project needs.
+A recurring theme is the lack of a single, comprehensive solution, requiring teams to combine multiple tools to meet their objectives.
+
+Challenges are multifaceted, ranging from limited tooling and poor documentation to performance constraints and integration hurdles.
+Participants noted gaps in flexibility, scalability, and ease of use, particularly in cross-platform environments.
+Vector graphics’ scalability and visual quality are universally acknowledged, but they remain underutilized in gaming due to performance trade-offs and integration complexities.
+
+Motion graphics tools like Lottie and Rive are valued for their user-friendly interfaces, yet their applicability in technical contexts often requires custom solutions.
+The feedback emphasizes the need for better APIs, dynamic reloading capabilities, and intuitive interfaces for animation workflows.
+Additionally, participants see a growing demand for advanced features like 2D rigging, robust curve manipulation, and pre-built components to simplify development.
+
+Key suggestions for improvement include bridging the gap between designers and developers, enabling hot-reloading of assets, and providing better tools for evaluating user interaction with animations.
+Enhanced APIs for GPU utilization and tools for streamlined asset integration are also critical for reducing workflow friction.
+
+In conclusion, the findings underscore a clear demand for innovative tools that combine intuitive usability with technical flexibility.
+Addressing these gaps could unlock new possibilities for vector and motion graphics, making them integral to real-time applications and game engines.

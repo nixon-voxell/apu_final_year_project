@@ -130,7 +130,7 @@ The combination of vector graphics, real-time interactivity, and UI/UX integrati
 We intend to use these insights to refine #velyst further and explore more robust methods of incorporating dynamic vector content in both #lumina and other future projects.
 
 Looking ahead, our expectations are focused on the research and development of #velyst into a robust and adaptable framework, one that can cater to the growing demands of modern game development and interactive applications.
-With the integration of advanced vector graphic rendering techniques and improved UI/UX tools, we aim to make #velyst a cornerstone for developers working in dynamic, interactive environments, bringing vector graphics and motion graphics to the forefront of real-time applications.
+With the integration of advanced vector graphic rendering techniques and improved UI/UX tools, we aim to make #velyst a cornerstone for developers working in dynamic, interactive environments, bringing vector graphics and motion graphics to the forefront of games and real-time applications.
 
 #show heading.where(level: 1): set heading(numbering: "1.")
 
