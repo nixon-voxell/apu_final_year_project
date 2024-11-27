@@ -58,6 +58,8 @@ I am profoundly grateful to have had the opportunity to learn from and contribut
 Finally, I would like to thank my family and friends for their unwavering support and belief in me, which provided the motivation I needed to persevere through challenges.
 This project would not have been possible without each of you.
 
+#text(size: 0.7em)[_This document is written in Typst.\ Source file is on GitHub: #link("https://github.com/nixon-voxell/apu_investigation_report")._]
+
 #pagebreak()
 
 = Abstract
@@ -201,3 +203,133 @@ With the integration of advanced vector graphic rendering techniques and improve
   #image("assets/gantt-chart.png")
 ]
 
+== Respondence Demographic Profile
+
+#let demo_table(resps, genders, ages) = {
+  let conts = ()
+  for i in range(0, resps.len()) {
+    conts.push(resps.at(i))
+    conts.push(genders.at(i))
+    conts.push(ages.at(i))
+  }
+  show figure: set block(breakable: true)
+
+  figure(caption: [Respondence Demographic Profile])[
+    #set align(left)
+    #table(columns: (1fr, 1fr, 1fr), table.header(
+        [*Name*],
+        [*Gender*],
+        [*Age*],
+      ), ..conts)
+  ]
+}
+
+#demo_table(
+  (
+    "Batman",
+    "Jediah",
+    "leelien",
+    "Mohab ",
+    "Zi Qing",
+    "vw",
+    "Alireza",
+    "Kah Boon",
+    "Teh Cheng En",
+    "Sze",
+    "haojin",
+    "Karma",
+    "MJ",
+    "Awacs",
+    "e",
+    "Rafaya",
+    "Jia Hong",
+    "Jeremiah ",
+    "Tan Jia Hao ",
+    "Marcus Cheng",
+    "Goh Shao Hang",
+    "Nick Jang",
+    "GQKEK",
+    "Loo",
+    "Megat Syawaludin",
+    "Jing Heng",
+    "Jun Yong",
+    "ShiJie",
+    "Ming Yu",
+    "Xiu Zhen",
+    "Diviyan",
+    "Brenden Tan",
+    "roi ",
+  ),
+  (
+    "Male",
+    "Male",
+    "Female",
+    "Male",
+    "Female",
+    "Male",
+    "Male",
+    "Female",
+    "Male",
+    "Female",
+    "Female",
+    "Female",
+    "Female",
+    "Male",
+    "Male",
+    "Female",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+    "Male",
+  ),
+  (
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "25 - 30",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "25 - 30",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+    "18 - 24",
+  ),
+)
+
+_Note: the name of the participant can be pseudonyms and not the actual name in protecting the confidentiality_
