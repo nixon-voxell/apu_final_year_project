@@ -5,9 +5,9 @@
   nth(date.day(), sup: true) + date.display(" of [month repr:long] [year]")
 )
 
-= INTRODUCTION
+= Introduction
 
-== Problem Background
+== Research Background
 
 // Chapter 1 of the report is an important chapter since it describes the overall project and its outcome.
 // As this is the first chapter that the evaluators will read, it is essential to make a good first impression.
@@ -33,7 +33,7 @@ By bridging the gap between technological capabilities and developer needs, this
 
 == Problem Statement
 
-=== Scalability, precision, and animation
+// ===
 
 #figure(caption: [Vector vs Bitmap graphics @arneratermanis2017])[#image(
     "assets/vector-vs-raster.png",
@@ -41,21 +41,21 @@ By bridging the gap between technological capabilities and developer needs, this
   )] <vector-vs-raster>
 
 Traditional methods of rendering 2D graphics has always relied on bitmap-based texture mapping @ray2005vector.
-While this approach is ubiquitous, it suffers a major drawback of the _pixelation_ effect when being scaled beyond the original resolution @nehab2008random.
+While this approach is ubiquitous, it suffers a major drawback --- the _pixelation_ effect when being scaled beyond the original resolution @nehab2008random.
 Furthermore, creating animations using bitmap-based textures can be extremely limited and complex because of the rigid grid-like data structure used to store the data.
-Animating raster graphics are commonly done through the use of fragment shaders which directly manipulates individual pixels, or relying on image sequences (a.k.a flipbooks) which produces an illusion of movement @jeremias2014shadertoy @flipbook2016.
+Animating raster graphics are commonly done through the use of fragment shaders which directly manipulates individual pixels, or relying on flipbooks (image sequences) to simulate motion @jeremias2014shadertoy @flipbook2016.
 
-Unlike raster graphics which rely on a fixed grid of pixels, vector graphics are precise and resolution independent.
-This means that it can scale without losing quality (shown in @vector-vs-raster).
+In contrast, vector graphics offer precision and resolution independence, enabling infinite scalability without visual degradation (shown in @vector-vs-raster).
 A vector illustration is composed of multiple _paths_ that define _shapes_ to be painted in a given order @ganacim2014massively.
 Each of these individual paths can be traced, altered, or even morphed into a completely different shape which allows for a huge variety of animation techniques in real-time @mateja2023animatesvg @dalstein2015vector @carlier2020deepsvg.
 Vector graphics animations can also react to dynamic runtime changes as the very definition of their shapes are extremely flexible.
 This property allows vector animations to be generated procedurally instead of relying on pre-recorded data @svganimation.
 
-=== Lack of support on UI/UX creation for complex interactivity
+// === Lack of support on UI/UX creation for complex interactivity
 
-_What You See Is What You Get_ (WYSIWYG) editors are visual centric tools that let users work directly within the presentation form of the content @madje2022programmable.
-Most game engines in the market like Unity, Unreal Engine, and Godot uses a WYSIWYG editor for creating user interfaces (UI) and user experiences (UX) @jacobsen2023 @unrealui2023 @godotui2024.
+However, despite these advantages, support for authoring complex vector-based interactions and animations within standard user interface creation workflows remains limited.
+Most game engines in the market including Unity, Unreal Engine, and Godot uses a WYSIWYG (What You See Is What You Get) editor for creating user interfaces (UI) and user experiences (UX) @jacobsen2023 @unrealui2023 @godotui2024.
+WYSIWYG editors are visual centric tools that let users work directly within the presentation form of the content @madje2022programmable.
 In WYSIWYG editors, users normally layout their contents using a drag and drop method and then style them using a style-sheet @wysiwyg2023.
 To bind interactions or animations towards a content, users would need to label it with a unique tag and query them through code.
 
@@ -64,12 +64,16 @@ For instance, it is virtually impossible to author a custom polygon shape in the
 This can only be achieved through code, and is often limited by the API layer provided by the WYSIWYG editor.
 This creates a huge distinction between the game/UI logic and the visual representation that is needed to convey the messages.
 
-=== Slow iteration time and feedback loops in development
+// === Slow iteration time and feedback loops in development
 
 While hot-reloading is applicable for the layout and styling (and simple logic to some extent) of a content.
 In an Unreal Engine UI tutorial titled "UMG Best Practices" by #cite(<umgpractices2019>, form: "prose"), the author concluded that logic should be kept in the C++ language (code) and Unreal Blueprints (visual scripting).
 It showcases that a WYSIWYG editor would not be capable of hot-reloading complex logic as these can only be achieved using code, which in most cases, requires a re-compilation.
 This could lead to frustration and lost of creativity due to the slow feedback loop.
+
+In summary, raster graphics poses two major issues in interactive content creation --- the scalability of the graphical content and the handling of dynamic animation state changes.
+Additonally, modern game engine UI editors lack the capability to support complex interaction, often offloading that responsibility to the game developers.
+This results in a slow feedback loop and potential miscommunication between design and development teams.
 
 == Project Aim
 
@@ -79,16 +83,16 @@ This project aims to establish a framework that enables the integration of inter
 // A minimum of three objectives and a maximum of four.
 // Must be measurable
 
-+ To assess the impact of vector graphics on visual quality, performance, and player experience in real-time games.
++ To assess the impact of vector graphics on visual quality in real-time games.
 + To design a framework that integrates vector graphics into real-time game environments, focusing on dynamic interactivity.
-+ To identify and address the technical challenges and computational requirements needed for efficient real-time rendering of dynamic vector graphics.
++ To identify and address the technical challenges needed for efficient real-time rendering of dynamic vector graphics.
 
 == Research Questions
 // Related to objectives
 
-+ What is the impact of using vector graphics on the visual quality, performance, and overall player experience in real-time games?
++ What is the impact of using vector graphics on the visual quality in real-time games?
 + How can vector graphics be efficiently integrated into real-time game environments to enhance dynamic interactivity?
-+ What are the technical challenges and computational requirements associated with rendering dynamic vector graphics in real-time?
++ What are the technical challenges associated with rendering dynamic vector graphics in real-time?
 
 == Scope
 // Describes in detail tasks to be executed.
@@ -134,7 +138,7 @@ The creation of the game will help ensure that #velyst is production ready by th
     table.header([Constraint], [Reason]),
     [*Compatibility*],
     [
-      Our project uses multiple cutting-edge and innovative technologies.
+      This project uses multiple cutting-edge and innovative technologies.
       This means that some of the technologies we depend on might be experimental or have yet to stabilize.
       This makes it difficult to ensure cross-platform / device compatibility for the systems we built.
       For example, Vello requires compute shaders to render vector graphics, which means it can only run on newer versions of browsers that support WebGPU.
@@ -187,7 +191,7 @@ The creation of the game will help ensure that #velyst is production ready by th
   A feature as described would only be applicable after #velyst becomes a viable solution.
 
 + *Not a commercial game*:
-  Our goal with #lumina is to create a game that demonstrates #velyst.
+  The goal with #lumina is to create a game that demonstrates #velyst.
   It is not meant to be on par with a full on commercial game.
 
 === Open Source License
@@ -255,7 +259,7 @@ Finally, the report closes in Chapter 4 with reflections on the study's contribu
 #[
   #set par(justify: false)
 
-  #let plan(start_date, tasks: ((name: content, days: int))) = {
+  #let plan(start_date, tasks: (name: content, days: int)) = {
     let date = start_date
     let contents = ()
 
