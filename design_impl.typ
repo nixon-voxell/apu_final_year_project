@@ -25,6 +25,11 @@
 
 == Introduction
 
+#figure(caption: [Velyst Logo])[#image(
+    "assets/velyst.svg",
+    width: 20%,
+  )] <velyst-logo>
+
 This project is split into two parts: #velyst and the integration proof-of-concept --- #lumina.
 Velyst is created as a separated Rust crate that is completely independent of Lumina.
 Lumina utilizes the Velyst crate for all (or at least most) of its UI/UX creation.
@@ -34,7 +39,7 @@ Velyst is an interactive Typst content creator using Vello as the renderer and B
 At it's core, Velyst aims to simplify the integration of Typst into the Bevy game engine.
 The goal is to allow developers to create dynamic vector graphics content using Velyst.
 Velyst can also be used in combination with other technologies such as SVG and Lottie files.
-Developers and artists will be able to leverage the full capability of Typst for authoring logic and animation directly inside the language.
+Developers and artists will be able to leverage the full capabilities of Typst for authoring logic and animation directly inside the language.
 Below is a table of developer productivity tools developed inside Velyst to streamline the workflow:
 #table(
   columns: (auto, auto),
