@@ -25,10 +25,26 @@
 
 == Introduction
 
-#figure(caption: [Velyst Logo])[#image(
-    "assets/velyst.svg",
-    width: 20%,
-  )] <velyst-logo>
+#[
+  #set align(center)
+  #stack(dir: ltr, spacing: 3em)[
+    #figure(caption: [Velyst Logo])[
+      #image(
+        "assets/velyst.svg",
+        width: 20%,
+      )
+    ] <velyst-logo>
+  ][
+    #figure(caption: [Lumina Logo])[
+      #box(
+        width: 20%,
+        radius: 100%,
+        clip: true,
+        image("assets/lumina.jpg"),
+      )
+    ] <lumina-logo>
+  ]
+]
 
 This project is split into two parts: #velyst and the integration proof-of-concept --- #lumina.
 Velyst is created as a separated Rust crate that is completely independent of Lumina.
