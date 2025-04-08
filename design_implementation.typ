@@ -19,7 +19,7 @@ Some examples of such usage would be the in-game UI like health bar, booster met
 This highlights the exceptional capabilities and distinctiveness of our library, setting it apart as a groundbreaking innovation in game development.
 
 The heart of #velyst is the compiler.
-The compiler is responsible for compiling Typst content into a usable data structure in Rust called `Content`.
+The compiler is responsible for compiling Typst content into a usable data structure in Rust called `Content` @madje2022programmable.
 This data structure is the heart of Typst, it can be used to represent any part of the Typst document, in our case the entire document.
 This process will be done every frame, which makes it curcial for it to be optimized.
 Once the compilation is done, the content will then be converted into a Vello scene which is sent to the GPU for accelerated vector graphics rendering.
@@ -33,17 +33,78 @@ These system will enable users to define provide function arguments in Rust for 
 
 === #lumina
 
-#lumina is a fast paced player versus player versus environment (PvPvE) game.
-In the game, players control a spaceships to complete objectives by depositing _lumina_ into the _tesseract_.
+#lumina is a fast paced, top down, 2D, player versus player versus environment (PvPvE) game.
+In the game, players pilot a spaceships to complete objectives by depositing lumina into the tesseract to push the tesseract meter.
 Players of different teams can also eliminate each other during the match in an attempt to obtain an upper hand.
-The game is almost completely physics simulated.
+To win the game, one team will need to push the tesseract meter completely towards the opposing side to obtain total dominance.
+
+The game is heavily physics-driven, with each spaceship consisting of a physics body that interacts dynamically with the environment.
+It employs client-side prediction to ensure seamless and responsive physics interactions, maintaining a smooth gameplay experience.
+To uphold fair play, all predictions are validated against the server, enabling a fully server-authoritative system that prevents cheating.
+
+The game will employ a custom implementation of global illumination solution using the Radiance Cascades method @osborne2024radiance.
+Unlike most 2D games, this game does not use any point or spot lights to illuminate the scene.
+Instead, it relies on emissive materials in the scene.
+The algorithm will be developed using compute shaders and runs entirely on the GPU.
+
+#lumina features three different levels:
+- The local lobby when the player first enters the game.
+- The multiplayer lobby when the player enters matchmaking mode.
+- The in-game terrain which will be partially procedurally generated.
+
+Inside the in-game terrain, enemy mobs will spawn in dedicated spawn points.
+Once defeated, the mobs will drop lumina for the players to collect.
+These mobs are the primary source of lumina in the game.
+When a player dies with lumina in their inventory, their lumina will drop onto the ground for other players to collect (friend or foe).
+
+#pagebreak()
 
 == Design
 
+=== Levels
+
+=== Art Assets
+
+=== Resources
+
+=== NPCs
+
+=== System Design Diagram
+
+#pagebreak()
+
 == Interface Design
+
+=== Menus
+
+=== In-game UI
+
+=== Popups
+
+==== Effectors
+
+==== Emoji
+
+#pagebreak()
 
 == Execution
 
+=== Software and Scripting
+
+=== Hardware Used
+
+=== APIs and External Libraries
+
+=== Asset Creation and Design Techniques
+
+=== Development Process
+
+=== Conclusion
+
+#pagebreak()
+
 == Screenshot
+
+#pagebreak()
 
 == Summary
