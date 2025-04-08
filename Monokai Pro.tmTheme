@@ -1342,7 +1342,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#78dce8</string>
+				<string>#ff6188</string>
 			</dict>
 			<key>name</key>
 			<string>Types and definition / declaration keywords should use the following scope. Examples include int, bool, char, func, function, class and def. Depending on the language and semantics, const may be this or storage.modifier.</string>
