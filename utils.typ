@@ -1,6 +1,6 @@
 #import "monokai_pro.typ": *
 #import "@preview/fletcher:0.5.7" as fletcher: diagram, node, edge, cetz
-#import fletcher.shapes: house, hexagon, octagon
+#import fletcher.shapes: house, hexagon, octagon, chevron
 
 #let info_box(title, body) = {
   box(
@@ -61,9 +61,9 @@
   #body
 ]
 
-#let cell_diag(..args) = diagram(
+#let cell_diag(cell-size: (0.8em, 1em), ..args) = diagram(
   spacing: 0.8em,
-  cell-size: (0.8em, 1em),
+  cell-size: cell-size,
   edge-stroke: 1pt,
   edge-corner-radius: 5pt,
   mark-scale: 80%,
