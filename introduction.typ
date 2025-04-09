@@ -99,8 +99,8 @@ This project aims to establish a framework that enables the integration of inter
 // Constraints regarding any part of the project development (e.g. size of system and technology).
 // What will and will not be done as part of the project.
 
-The scope of this project invovles making a game that utilizes #velyst.
-The creation of the game will help ensure that #velyst is production ready by the end of this project.
+The scope of this project invovles making a game --- #lumina that utilizes #velyst.
+The creation of the game will help ensure that Velyst is production ready by the end of this project.
 
 #figure(caption: "Scope")[
   #table(
@@ -115,7 +115,7 @@ The creation of the game will help ensure that #velyst is production ready by th
 
 === Tasks to be executed
 
-+ Develop the open sourced #velyst crate.
++ Develop the open sourced Velyst crate.
   + Develop an integrated compiler for Typst content in Bevy.
   + Support hot-reloading of Typst content.
   + Support interactivity between Bevy and Typst.
@@ -123,9 +123,9 @@ The creation of the game will help ensure that #velyst is production ready by th
   + Support in-game textures using vector graphics content (e.g. using vector graphics texture for a crate in the game).
   + Write up a getting started documentation to make on-boarding easier for new developers.
 
-+ Develop the #lumina game.
++ Develop the Lumina game.
   + Create a game design document (GDD) for the game.
-  + Integrate #velyst into the game.
+  + Integrate Velyst into the game.
   + Develop all the required game mechanics for the game.
   + Playtest the game and gather player feedbacks on the game.
 
@@ -188,10 +188,10 @@ The creation of the game will help ensure that #velyst is production ready by th
 + *No visual editors*:
   It is possible to blend the Typst language with some form of visual editors, where the output would be a Typst function that takes in input parameters and produces a dynamic output content.
   However, our main focus for this project is to address the shortcomings of modern WYSIWYG editors.
-  A feature as described would only be applicable after #velyst becomes a viable solution.
+  A feature as described would only be applicable after Velyst becomes a viable solution.
 
 + *Not a commercial game*:
-  The goal with #lumina is to create a game that demonstrates #velyst.
+  The goal with Lumina is to create a game that demonstrates Velyst.
   It is not meant to be on par with a full on commercial game.
 
 === Open Source License
@@ -202,7 +202,7 @@ The creation of the game will help ensure that #velyst is production ready by th
 - Apache License, Version 2.0 (LICENSE-APACHE or http://www.apache.org/licenses/LICENSE-2.0)
 
 This means you can select the license you prefer! This dual-licensing approach is the de-facto standard in the Rust ecosystem and there are very good reasons to include both.
-Head over to the #velyst GitHub repository (https://github.com/voxell-tech/velyst) to learn more!
+Head over to the Velyst GitHub repository (https://github.com/voxell-tech/velyst) to learn more!
 
 == Potential Benefit
 
@@ -227,7 +227,7 @@ Head over to the #velyst GitHub repository (https://github.com/voxell-tech/velys
 === Target User
 
 #velyst will particularly be targeted towards UI/UX developers, motion graphics creators, and vector graphics enthusiasts.
-Because #velyst is built on top of Rust and Bevy, the general users will come from the Rust and Bevy community.
+Because it is built on top of Rust and Bevy, the general users will come from the Rust and Bevy community.
 
 As for #lumina, the target audience are gamers who love fast-paced multiplayer games like _Apex Legends_ and _Astro Duel 2_.
 It will particularly appeal to gamers who love the mix of competitive PvP and PvE like _Destiny 2_′s Gambit game mode and _World War Z_.

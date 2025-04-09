@@ -623,6 +623,8 @@ Each spaceship has a common ability --- _Dash_, and a unique ability --- _Shadow
     #image("assets/lumina-screenshots/defender-skill.png")
   ],
   [
+    *Defender*
+
     A highly durable spaceship, with strong shields for defense-focused gameplay.
     The defender spaceship has significantly more health than the assassin.
     The bullets of the defender travels slower, but it has higher firing rate.
@@ -649,20 +651,29 @@ Each spaceship has a common ability --- _Dash_, and a unique ability --- _Shadow
   #image("assets/lumina-screenshots/firing-in-lobby.png")
 ]
 
+The Local lobby map is where players start when they enter the game.
+
 #figure(caption: [Sandbox (Map 2)])[
   #image("assets/lumina-screenshots/blender-sandbox.png")
   #image("assets/lumina-screenshots/in-sandbox.png")
 ]
+
+New players can choose to enter the Sandbox map to test out controls and learn how to play the game.
 
 #figure(caption: [Multiplayer lobby (Map 3)])[
   #image("assets/lumina-screenshots/blender-multiplayer.png")
   #image("assets/lumina-screenshots/in-multiplayer.png")
 ]
 
+When players enter the matchmaking mode (1v1/2v2/3v3), they will be teleported into the Multiplayer lobby where they can meet their team mates and opponents in real-time as they join.
+Once the lobby is full, they will enter the Abandoned Factory.
+
 #figure(caption: [Abandoned factory (Map 4, in-game map)])[
   #image("assets/lumina-screenshots/blender-abandoned-factory.png")
   #image("assets/lumina-screenshots/in-abandoned-factory.png")
 ]
+
+The Abandoned Factory is the map where opposite teams compete between each other.
 
 #pagebreak()
 
@@ -678,9 +689,422 @@ The objective of the game is to destroy ores (@destroy-ores), collect luminas, a
   #image("assets/lumina-screenshots/deposit-lumina.png")
 ] <deposit-lumina>
 
+An alternative to obtain Lumina apart from destroying ores is by destroying the opponent's spaceships.
+When a spaceship is destroyed, all Lumina that it is holding will be dropped onto the map.
 Each deposited Lumina will push the bar (shown in @tesseract-effect-bar) towards the other end (right in the player's view).
 The team that pushes the bar towards the end will win the game!
 
 #figure(caption: [Tesseract effect bar])[
   #image("assets/lumina-screenshots/tesseract-effect-bar.png")
 ] <tesseract-effect-bar>
+
+==== Miscellaneous
+
+#[
+  #set par(justify: false)
+  #table(
+    columns: (1fr, 1fr, 1fr),
+    [
+      #figure(
+        caption: [Lumina],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/lumina.png"),
+        ),
+      )
+      The points that the player collects and deposit into the Tesseract.
+    ],
+    [
+      #figure(
+        caption: [Small ore],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ore-small.png"),
+        ),
+      )
+      When destroyed, 1-2 Luminas will drop into the map.
+    ],
+    [
+      #figure(
+        caption: [Medium ore],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ore-medium.png"),
+        ),
+      )
+      When destroyed, 3-5 Luminas will drop into the map.
+    ],
+
+    [
+      #figure(
+        caption: [Large ore],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ore-large.png"),
+        ),
+      )
+      When destroyed, 5-8 Luminas will drop into the map.
+    ],
+    [
+      #figure(
+        caption: [Spawn point],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/spawn-point.png"),
+        ),
+      )
+      The location where players spawn.
+    ],
+    [
+      #figure(
+        caption: [Laser],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/laser.png"),
+        ),
+      )
+      Will fire occasionally and damage any spaceship within its range.
+    ],
+
+    box[
+      #figure(
+        caption: [Teleporter],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/teleporter.png"),
+        ),
+      )
+      Teleport spaceships to the other end of the teleporter.
+    ],
+    box[
+      #figure(
+        caption: [Teleporter base],
+        box(
+          width: 50%,
+          rotate(
+            90deg,
+            box(
+              radius: 1em,
+              clip: true,
+              image("assets/lumina-screenshots/teleporter-base.png"),
+            ),
+          ),
+        ),
+      )
+
+      Teleport spaceships to the other end of the teleporter.
+    ],
+    [
+      #figure(
+        caption: [Bullet],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/bullet.png"),
+        ),
+      )
+      A glowing bullet that applies damage on opponents and ores.
+    ],
+
+    [
+      #figure(
+        caption: [Door],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/door.png"),
+        ),
+      )
+
+      Decorative door.
+    ],
+    [
+      #figure(
+        caption: [Moving door],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/door-moving.png"),
+        ),
+      )
+      A door that moves from start to end in a loop.
+      This door will obstruct spaceships and bullets from going through.
+    ],
+  )
+]
+
+#pagebreak()
+
+== Interface Design
+
+Custom SVG assets are utilized and created for the buttons, cards, and icons.
+
+=== Menu Designs
+
+#figure(
+  caption: [Main menu],
+  image("assets/lumina-screenshots/ui-main-menu.png"),
+)
+
+The start menu consists of a start button, a settings button, and an exit button.
+
+#figure(
+  caption: [Spaceship select menu],
+  image("assets/lumina-screenshots/ui-spaceship-select.png"),
+)
+
+The spaceship select menu allows player to select between the different types of spaceships.
+
+#figure(
+  caption: [Matchmake select menu],
+  image("assets/lumina-screenshots/ui-matchmake-select.png"),
+)
+
+The matchmake select menu allows player to choose either sandbox or a team versus match.
+
+#pagebreak()
+
+=== Spaceship Stats
+
+#figure(
+  caption: [Spaceship stats],
+  image("assets/lumina-screenshots/ui-spaceship-stats.png"),
+) <spaceship-stats>
+
+The spaceship stats consists of the spaceship's health, fuel, weapon selection, and the ammo count (@spaceship-stats).
+Below are the possible scenarios for the spaceship's health and fuel UI:
+
+#[
+  #set par(justify: false)
+  #table(
+    columns: (1fr, 1fr, 1fr),
+    [
+      #figure(
+        caption: [Lumina],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ui-health-full.png"),
+        ),
+      )
+      Complete green indicates a full health.
+    ],
+    [
+      #figure(
+        caption: [Small ore],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ui-health-damaged.png"),
+        ),
+      )
+      Health color will interpolate from green to reddish as it goes down.
+    ],
+    [
+      #figure(
+        caption: [Medium ore],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ui-health-critical.png"),
+        ),
+      )
+      Health color goes towards red when nearing death.
+    ],
+
+    box[
+      #figure(
+        caption: [Full fuel],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ui-fuel-full.png"),
+        ),
+      )
+      Complete yellow indicates full fuel.
+    ],
+    [
+      #figure(
+        caption: [Half fuel],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ui-fuel-half.png"),
+        ),
+      )
+      Fuel meter slowly interpolate from yellow to reddish as it goes down.
+    ],
+    [
+      #figure(
+        caption: [Empty fuel],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ui-fuel-empty.png"),
+        ),
+      )
+      Fuel meter will turn completely red on empty.
+    ],
+  )
+]
+
+#figure(caption: [Spaceship abilities])[
+  #image("assets/lumina-screenshots/assassin-skill.png")
+]
+
+The spaceship abilities UI indicates the current state of abilities (triggered, effective, cooldown).
+#[
+  #set par(justify: false)
+  #table(
+    columns: (1fr, 1fr, 1fr),
+    [
+      #figure(
+        caption: [Ability active],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ability-active.png"),
+        ),
+      )
+      Blue background indicates that the ability is currently active.
+    ],
+    [
+      #figure(
+        caption: [Ability cooldown],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/ability-cooldown.png"),
+        ),
+      )
+      A cooldown shade indicates the percentage of the cooldown.
+    ],
+    [
+      #figure(
+        caption: [Dash cooldown],
+        box(
+          radius: 1em,
+          clip: true,
+          image("assets/lumina-screenshots/dash-cooldown.png"),
+        ),
+      )
+      Works similar to the ability cooldown.
+      (No active for _Dash_ as the effect is immediate.)
+    ],
+  )
+]
+
+#pagebreak()
+
+== Execution
+
+=== Technology Stack
+
+#lumina is made mainly using the Rust language. This means that most of the dependencies used will also be from the Rust ecosystem.
+
+Here is the breakdown of the Lumina tech stack:
+
+#table(
+  columns: (1fr, 2fr),
+  table.header(
+    [*Component*],
+    [*Tool/Library*],
+  ),
+
+  [Game Engine], underline(link("https://bevyengine.org/")[_Bevy_]),
+  [UI/UX], underline(link("https://github.com/voxell-tech/velyst")[_Velyst_]),
+  [Global Illumination],
+  underline(
+    link("https://github.com/nixon-voxell/bevy_radiance_cascades")[_Radiance Cascades, an improvement from here_],
+  ),
+
+  [Particle System],
+  underline(link("https://github.com/Lommix/bevy_enoki")[_Bevy Enoki_]),
+
+  [Physics], underline(link("https://github.com/Jondolf/avian")[_Avian_]),
+  [Networking],
+  underline(link("https://github.com/cBournhonesque/lightyear")[_Lightyear_]),
+
+  [Asset Management],
+  underline(link("https://github.com/kaosat-dev/Blenvy")[_Blenvy_]),
+
+  [Input Manager],
+  underline(
+    link("https://github.com/Leafwing-Studios/leafwing-input-manager")[_Leafwing Input Manager_],
+  ),
+
+  [Coroutine],
+  underline(link("https://github.com/Maaxed/bevy_coroutine")[_Bevy Coroutine_]),
+
+  [Motion Graphics],
+  underline(
+    link("https://github.com/voxell-tech/bevy_motiongfx")[_Bevy MotionGfx_],
+  ),
+)
+
+=== Running the game
+
+To compile Lumina, you have to perform a recursive clone:
+
+#figure(kind: image, caption: [Cloning the repository])[
+  ```sh
+  git clone --recursive https://github.com/nixon-voxell/lumina.git
+  ```
+]
+
+Before running the game, the `assets` folder needs to be linked correctly to all the binary crates.
+You can do so by running:
+
+#figure(kind: image, caption: [Linking the assets])[
+  ```sh
+  create_asset_junctions.bat
+  ```
+]
+
+To run the game, you need to start the server and the client.
+You can do so manually using:
+
+#figure(kind: image, caption: [Running the binaries individually])[
+  ```sh
+  cargo run --bin lumina_server
+  cargo run --bin lumina_client
+  ```
+]
+
+For development purposes, a shell script has been created to speed things up:
+
+#figure(kind: image, caption: [Running the shell script])[
+  ```sh
+  # Windows
+  run.bat x
+  # Linux or MacOS
+  run.sh x
+  ```
+]
+
+With `x` being the number of clients you want to spawn.
+
+#pagebreak()
+
+== Summary
+
+In summary, #velyst lets developers build interactive, vector-based interfaces using Typst, rendered with Vello and powered by Bevy.
+It supports hot-reloading, function macros, auto-layout, and GPU rendering.
+
+Velyst loads Typst files, compiles them into layouts, and turns them into Vello scenes.
+UI elements become Bevy entities, making interaction easy through ECS.
+Procedural macros help bind Rust code to Typst components.
+
+#lumina is a 2D PvP game where players collect "Lumina" to power a Tesseract.
+It features smooth online gameplay with custom physics and global illumination via Radiance Cascades.
+Players choose between two ships: the stealthy Assassin or the tanky Defender.
+The game includes four maps for different gameplay modes.
+
+Together, Velyst and Lumina demonstrate a streamlined UI pipeline and its use in a live game setting.

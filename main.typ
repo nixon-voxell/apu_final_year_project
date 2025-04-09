@@ -119,26 +119,28 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Typst_
 
 #pagebreak()
 
-= Conclusion
+#include "result.typ"
 
-Throughout this research, we have explored the evolution of vector graphics, examining its historical roots and tracing its development through to the current modern techniques.
-This investigation has provided a comprehensive understanding of how vector graphics, from their early applications to today’s dynamic and interactive uses, continue to influence the design and performance of modern digital content.
-On the other hand, research on UI/UX implementations shows the different ways of UI frameworks implementations, namely, IMGUI and RMGUI, with strength and weaknesses evaluated form both sides.
-These insights will help us in developing a more robust framework for #velyst.
-Finally, we also took a deep dive into the tools used in authoring UI elements using markup languages like HTML and CSS.
-It is concluded with Typst as the most suitable authoring tool for #velyst and Vello as the most efficient and future-proof renderer of vector graphics content.
+// = Conclusion
 
-From the surveys and interviews, we saw a common theme on the lack of robust tooling in terms of integration and flexibility.
-Many developers expressed a desire for improved tools that can streamline the integration of vector and motion graphics into real-time applications and game engines.
-Several challenges were highlighted, such as the lack of seamless interoperability between different platforms, the complexity of dynamic vector graphics integration, and the need for more flexible, customizable toolsets.
-For instance, many participants pointed out that existing tools often require too much technical knowledge or have limitations in terms of performance and flexibility.
+// Throughout this research, we have explored the evolution of vector graphics, examining its historical roots and tracing its development through to the current modern techniques.
+// This investigation has provided a comprehensive understanding of how vector graphics, from their early applications to today’s dynamic and interactive uses, continue to influence the design and performance of modern digital content.
+// On the other hand, research on UI/UX implementations shows the different ways of UI frameworks implementations, namely, IMGUI and RMGUI, with strength and weaknesses evaluated form both sides.
+// These insights will help us in developing a more robust framework for #velyst.
+// Finally, we also took a deep dive into the tools used in authoring UI elements using markup languages like HTML and CSS.
+// It is concluded with Typst as the most suitable authoring tool for #velyst and Vello as the most efficient and future-proof renderer of vector graphics content.
 
-Additionally, the #lumina project, with its focus on dynamic, interactive environments, benefits greatly from these findings.
-The combination of vector graphics, real-time interactivity, and UI/UX integration will play a crucial role in delivering a seamless and immersive user experience.
-These insights will be used to refine #velyst further and explore more robust methods of incorporating dynamic vector content in both #lumina and other future projects.
+// From the surveys and interviews, we saw a common theme on the lack of robust tooling in terms of integration and flexibility.
+// Many developers expressed a desire for improved tools that can streamline the integration of vector and motion graphics into real-time applications and game engines.
+// Several challenges were highlighted, such as the lack of seamless interoperability between different platforms, the complexity of dynamic vector graphics integration, and the need for more flexible, customizable toolsets.
+// For instance, many participants pointed out that existing tools often require too much technical knowledge or have limitations in terms of performance and flexibility.
 
-Looking ahead, our expectations are focused on the research and development of #velyst into a robust and adaptable framework, one that can cater to the growing demands of modern game development and interactive applications.
-With the integration of advanced vector graphic rendering techniques and improved UI/UX tools, we aim to make #velyst a cornerstone for developers working in dynamic, interactive environments, bringing vector graphics and motion graphics to the forefront of games and real-time applications.
+// Additionally, the #lumina project, with its focus on dynamic, interactive environments, benefits greatly from these findings.
+// The combination of vector graphics, real-time interactivity, and UI/UX integration will play a crucial role in delivering a seamless and immersive user experience.
+// These insights will be used to refine #velyst further and explore more robust methods of incorporating dynamic vector content in both #lumina and other future projects.
+
+// Looking ahead, our expectations are focused on the research and development of #velyst into a robust and adaptable framework, one that can cater to the growing demands of modern game development and interactive applications.
+// With the integration of advanced vector graphic rendering techniques and improved UI/UX tools, we aim to make #velyst a cornerstone for developers working in dynamic, interactive environments, bringing vector graphics and motion graphics to the forefront of games and real-time applications.
 
 #show heading.where(level: 1): set heading(numbering: "1.")
 
