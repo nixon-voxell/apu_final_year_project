@@ -851,7 +851,7 @@ Custom SVG assets are utilized and created for the buttons, cards, and icons.
 #figure(
   caption: [Main menu],
   image("assets/lumina-screenshots/ui-main-menu.png"),
-)
+) <main-menu>
 
 The start menu consists of a start button, a settings button, and an exit button.
 
@@ -1049,6 +1049,229 @@ Here is the breakdown of the Lumina tech stack:
   ),
 )
 
+#pagebreak()
+
+=== UI Creation Workflow
+
+This section will discuss how a user interface is designed, created, and implemented into the game using the #velyst pipeline discussed earlier.
+We will take the main menu (@main-menu) as an example:
+
+
+==== Create Assets
+
+Create the assets needed for the UI layout.
+This normally includes creating the SVG files using softwares like Graphite.rs or Adobe Illustrator.
+Some assets we created for the game includes:
+
+#table(
+  columns: (1fr, 1fr, 1fr),
+  figure(
+    caption: [Button 1],
+    box(
+      inset: 1em,
+      fill: base0,
+      radius: 0.5em,
+      image("assets/ui-assets/button01.svg"),
+    ),
+  ),
+  figure(
+    caption: [Button 2],
+    box(
+      inset: 1em,
+      fill: base0,
+      radius: 0.5em,
+      image("assets/ui-assets/button02.svg"),
+    ),
+  ),
+  figure(
+    caption: [Card],
+    box(
+      inset: 1em,
+      fill: base0,
+      radius: 0.5em,
+      image("assets/ui-assets/card.svg"),
+    ),
+  ),
+)
+
+==== Layout Content
+
+Create the native Typst source file to layout the contents of the user interface.
+
+#figure(kind: image, caption: [Main menu Typst source file])[
+  ```typ
+  #import "../monokai_pro.typ": *
+  #import "../utils.typ": *
+
+  #let main_menu(connected, connection_msg, dummy_update) = {
+    box(width: 100%, height: 100%, inset: 4em)[
+      #if connected == false {
+        connect_server(connection_msg, dummy_update)
+        return
+      }
+
+      #place(center + horizon)[
+        #text(fill: yellow, size: 7em, font: "IBrand")[= Lumina]
+
+        #text(fill: green, size: 2em)[
+          #button(lbl: <btn:play>, inters: interactions())[== Start Engine!]
+        ]
+      ]
+
+      #place(right + bottom)[
+        #box(height: 3em)[
+          #button(lbl: <btn:settings>, inters: interactions())[== #emoji.gear Settings]
+        ]
+
+        #box(height: 3em)[
+          #text(fill: red)[
+            #button(lbl: <btn:exit-game>, inters: interactions())[== Abort]
+          ]
+        ]
+      ]
+    ]
+  }
+  ```
+]
+
+==== Definition of Source File and Function
+
+The next step is to link the \*.typ source file in Rust (@link-source) and create a ```rs struct``` to match the definition of the Typst function (@define-func).
+
+#figure(kind: image, caption: [Link \*.typ source file])[
+  ```rs
+  #[derive(TypstPath)]
+  #[typst_path = "typst/client/main_menu.typ"]
+  struct MainMenuUi;
+  ```
+] <link-source>
+
+#figure(kind: image, caption: [Define ```rs struct``` "function"])[
+  ```rs
+  #[derive(TypstFunc, Resource, Default)]
+  #[typst_func(name = "main_menu", layer = 1)]
+  pub struct MainMenuFunc {
+      connected: bool,
+      connection_msg: String,
+      dummy_update: u8,
+  }
+  ```
+] <define-func>
+
+==== Register Asset and Typst Function
+
+The final and last step is to register the asset file and function using the `Plugin` system in Bevy:
+
+#figure(kind: image, caption: [Register asset and Typst function])[
+  ```rs
+  impl Plugin for MainMenuUiPlugin {
+      fn build(&self, app: &mut App) {
+          app
+              // Register source file as asset.
+              .register_typst_asset::<MainMenuUi>()
+              // Register the function for compilation.
+              .compile_typst_func::<MainMenuUi, MainMenuFunc>()
+              // Register the function for rendering.
+              // This step is optional, as users may need the compiled Content only.
+              .render_typst_func::<MainMenuFunc>()
+              // Insert function as Resource.
+              .insert_resource(MainMenuFunc {
+                  connection_msg: "Connecting to server...".to_string(),
+                  ..default()
+              });
+      }
+  }
+  ```
+]
+
+The function itself is also registered as a Bevy `Resource` so that it can be obtained from Bevy's systems to modify the arguments of the function when needed.
+Here's an example on how to do it:
+
+#figure(
+  kind: image,
+  caption: [Using Bevy's system to modify arguments of a Typst function],
+)[
+  ```rs
+  impl Plugin for MainMenuUiPlugin {
+      fn build(&self, app: &mut App) {
+          // Registering of assets and functions goes here ...
+          app.add_systems(OnEnter(Connection::Disconnected), disconnected_from_server);
+      }
+  }
+
+  fn disconnected_from_server(
+      mut func: ResMut<MainMenuFunc>,
+  ) {
+      func.connected = false;
+      func.connection_msg = "Disconnected...".to_string();
+  }
+  ```
+]
+
+#pagebreak()
+
+=== Blender Asset Workflow
+
+#figure(caption: [Blenvy], image("assets/blenvy.png", height: 20em))
+
+Blenvy is an tool for using Blender as the level editor for Bevy.
+At the time of writing this report, Bevy has yet to developed a functional editor.
+The first step of the Blenvy workflow is to create assets within Blender.
+Next, using the Blenvy's Blender add-on, users can attach components to the objects in Blender:
+
+#figure(caption: [Blenvy], image("assets/blenvy/component.png", height: 23em))
+
+These components are required to be registered in the Rust soruce code as well.
+
+#figure(kind: image, caption: [Register components])[
+  ```rs
+  impl Plugin for TypeRegistryPlugin {
+      fn build(&self, app: &mut App) {
+          app
+              .register_type::<NoRadiance>()
+              .register_type::<SpaceshipType>()
+              // And many more..
+      }
+  }
+  ```
+]
+
+Because Blenvy utilizes the Bevy's reflection system to insert these components on load, the registered component type must also derive the `Reflect` trait with the `Component` trait reflected.
+
+#figure(kind: image, caption: [Deriving reflection])[
+  ```rs
+  #[derive(Component, Reflect, Clone, Copy)]
+  #[reflect(Component)] // Reflection is required for components to be registable.
+  pub struct NoRadiance;
+  ```
+]
+
+When the assets are needed to be used in the game, we load them into the game through a unique ```rs enum``` type that we create in Lumina.
+The `strum` crate is used here to define the folder the asset is located in.
+
+#figure(kind: image, caption: [Spawning assets])[
+  ```rs
+  #[derive(Component, Reflect, AsRefStr, Debug, Clone, Copy)]
+  #[reflect(Component)]
+  #[strum(prefix = "spaceship_blueprints/")] // The folder the asset is located in.
+  pub enum SpaceshipType {
+      Assassin, // Must match the asset file's name.
+      Defender,
+  }
+
+  // Spawning using a normal Bevy system.
+  fn spawn_assassin(mut commands: Commands) {
+      commands.spawn((SpaceshipType::Assassin.info(), SpawnBlueprint));
+  }
+  ```
+]
+
+#pagebreak()
+
+=== Networking Protocols
+
+#pagebreak()
+
 === Running the game
 
 To compile Lumina, you have to perform a recursive clone:
@@ -1098,11 +1321,11 @@ With `x` being the number of clients you want to spawn.
 In summary, #velyst lets developers build interactive, vector-based interfaces using Typst, rendered with Vello and powered by Bevy.
 It supports hot-reloading, function macros, auto-layout, and GPU rendering.
 
-Velyst loads Typst files, compiles them into layouts, and turns them into Vello scenes.
+Velyst loads Typst files, compiles them into layouts, and turns them into #vello_scene.
 UI elements become Bevy entities, making interaction easy through ECS.
 Procedural macros help bind Rust code to Typst components.
 
-#lumina is a 2D PvP game where players collect "Lumina" to power a Tesseract.
+#lumina is a 2D PvP game where players collect Lumina to power a Tesseract.
 It features smooth online gameplay with custom physics and global illumination via Radiance Cascades.
 Players choose between two ships: the stealthy Assassin or the tanky Defender.
 The game includes four maps for different gameplay modes.

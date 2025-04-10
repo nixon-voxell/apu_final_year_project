@@ -29,9 +29,9 @@
   #stack(spacing: 0.15em, line(), line(), line(), line())
 ]
 
-#let blob(pos, label, tint: base7, ..args) = node(
+#let blob(pos, label, tint: base7, lean: center, ..args) = node(
   pos,
-  align(center, label),
+  align(lean, label),
   fill: tint.lighten(60%),
   stroke: 0.1em + tint.darken(20%),
   corner-radius: 0.5em,
@@ -47,9 +47,9 @@
   ..args,
 )
 
-#let gradient_blob(pos, label, colors, ..args) = node(
+#let gradient_blob(pos, label, colors, lean: center, ..args) = node(
   pos,
-  align(center, label),
+  align(lean, label),
   fill: gradient.linear(..colors.map(c => c.lighten(60%))),
   stroke: 0.1em + gradient.linear(..colors.map(c => c.darken(20%))),
   corner-radius: 0.5em,
