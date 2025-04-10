@@ -67,7 +67,7 @@ Below is a table of developer productivity tools developed inside Velyst to stre
   [Function Macros],
   [
     Velyst expects developers to create functions in the Typst source file and run them within Rust.
-    This is particularly repetitive as users will need to constantly define the function name and arguments.
+    This is particularly repetitive as developers will need to constantly define the function name and arguments.
     Velyst makes this simple by introducing a procedural macro for handling all these on a normal Rust ```rs struct```.
   ],
 
@@ -305,7 +305,7 @@ Lastly, developers can apply any final post-process needed to the #frame which w
 
 Velyst provides two utility crates: #typst_elem and #typst_vello.
 
-#underline[#typst_elem]
+==== Typst Element
 
 #figure(caption: [Typst Element utilities])[
   #set align(center)
@@ -388,7 +388,7 @@ This crate also provides a huge number of other utility functions using the ```r
   ```
 ] <fn-elem>
 
-#underline[#typst_vello]
+==== Typst Vello
 
 #figure(caption: [Typst Vello utilities])[
   #set align(center)
@@ -1246,7 +1246,7 @@ Because Blenvy utilizes the Bevy's reflection system to insert these components 
   ```
 ]
 
-When the assets are needed to be used in the game, we load them into the game through a unique ```rs enum``` type that we create in Lumina.
+When the assets are needed to be used in the game, we load them into the game through a unique ```rs enum``` type that we create in the source code.
 The `strum` crate is used here to define the folder the asset is located in.
 
 #figure(kind: image, caption: [Spawning assets])[
@@ -1269,6 +1269,53 @@ The `strum` crate is used here to define the folder the asset is located in.
 #pagebreak()
 
 === Networking Protocols
+
+The Lightyear crate is used as the networking solution for the game.
+All networking protocols are defined explicitly in the source code.
+
+#figure(kind: image, caption: [Network protocols])[
+  ```rs
+  impl Plugin for ProtocolPlugin {
+      fn build(&self, app: &mut App) {
+          // Channels
+          app.add_channel::<OrdReliableChannel>(ChannelSettings {
+              mode: ChannelMode::OrderedReliable(ReliableSettings::default()),
+              ..default()
+          });
+
+          // Messages
+          // ==============================
+          app.register_message::<EnterSandbox>(ChannelDirection::Bidirectional);
+          app.register_message::<Matchmake>(ChannelDirection::ClientToServer);
+          // And many more..
+
+          // ==============================
+          // Input
+          app.add_plugins(LeafwingInputPlugin::<PlayerAction>::default());
+
+          // Components
+          // ==============================
+          // Only sync once when it was first added.
+          app.register_component::<Transform>(ChannelDirection::ServerToClient)
+              .add_prediction(ComponentSyncMode::Once);
+          // Simple update sync.
+          app.register_component::<MaxHealth>(ChannelDirection::ServerToClient)
+              .add_prediction(ComponentSyncMode::Simple);
+          // Full sync with rollback.
+          app.register_component::<Position>(ChannelDirection::ServerToClient)
+              .add_prediction(ComponentSyncMode::Full)
+              .add_correction_fn(position::lerp);
+          // And many more..
+      }
+  }
+  ```
+]
+
+The game uses channel to send important messages that needs to be ordered and reliable.
+Lightyear also has a strong support for the Leafwing input plugin that Lumina uses.
+Lastly, syncing of each entity's behaviour is done through the registration of components.
+For each protocol, developers can define the direction of the message.
+This allows for server authoritative operations where the message direction can only go from server to clients.
 
 #pagebreak()
 
