@@ -489,7 +489,7 @@ _Section 2: Vector graphics in games_
         The survey reveals varying perceptions of how well Unity and Unreal Engine handle vector graphics for static and animated elements.
         In Unity, the majority of respondents rated its handling as _Moderate_, followed by a significant portion rating it as _Well_.
         A smaller number of respondents rated it _Very well_, while negative ratings (_Very bad_ and _Bad_) were minimal.
-        For Unreal Engine, the ratings skew more positively, with _Well_ being the most common rating, followed closely by _Moderate_.
+        For Unreal Engine, the ratings skew more positively, with _Moderate_ being the most common rating, followed closely by _Well_.
         A noticeable portion rated it as _Very well_, and only a few respondents chose negative ratings.
         These results indicate that while both engines perform adequately, they still does not provide a consistent great user experience as most respondants only recognize it as a moderate integration.
       ],
@@ -499,10 +499,10 @@ _Section 2: Vector graphics in games_
       data: image("assets/analysis/Picture5.png"),
       analysis: [
         The survey reveals that the performance of vector graphics in Unity and Unreal Engine varies across different rating categories.
-        In Unity, a majority of respondents rated the performance as _Moderate_, followed by _Good_.
+        In Unity, a majority of respondents rated the performance as _Good_, followed by _Moderate_.
         A smaller portion indicated _Very good_, while negative ratings (_Very bad_ and _Bad_) were minimal.
-        In contrast, Unreal Engine received higher positive feedback, with the majority rating the performance as _Good_ and a noticeable number choosing _Very good_.
-        However, _Moderate_ ratings were slightly fewer compared to Unity, and negative ratings remained minimal for both engines.
+        In contrast, Unreal Engine received higher positive feedback, with the majority rating the performance as _Moderate_ and a noticeable number choosing _Good_ and _Very good_.
+        However, negative ratings were slightly fewer compared to Unity.
         This distribution highlights that while both engines deliver adequate performance for vector graphics, Unreal Engine appears to have a stronger perception of positive performance among respondents.
       ],
     ),
@@ -511,9 +511,9 @@ _Section 2: Vector graphics in games_
       data: image("assets/analysis/Picture6.png"),
       analysis: [
         The survey reveals differing levels of difficulty in implementing vector graphics in Unity and Unreal Engine.
-        For Unity, the majority of respondents found it _Challenging_, with a smaller number rating it as _Moderate_ or _Easy_.
-        Only a few considered it _Very challenging_ or _Very easy_.
-        In Unreal Engine, the response distribution is almost the same, with most respondents rating it as _Moderate_ or _Challenging_, while fewer found it _Easy_ or _Very challenging_.
+        For Unity, the majority of respondents found it _Moderate_, with a smaller number rating it as _Challenging_.
+        Only a few considered it _Very challenging_ or _Easy_.
+        In Unreal Engine, the response distribution is almost the same, with most respondents rating it as _Moderate_ or _Challenging_, while fewer found it _Easy_ or _Very easy_.
         These results indicate that both engines present challenges in implementing vector graphics, suggesting the need for better tools or workflows to ease the implementation process.
       ],
     ),

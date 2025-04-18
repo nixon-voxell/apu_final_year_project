@@ -1208,13 +1208,18 @@ Here's an example on how to do it:
   ```
 ]
 
+In this particular example, a system is created to detect network disconnection using the state transition system schedule (```rs OnEnter(Connection::Disconnected)```).
+Once the state transition is triggered, the system will run, and the fields inside the `MainMenuFunc` will be altered.
+
+_\*Note: A system in Bevy looks exactly just like a normal Rust function with the exception that the arguments are restricted to system parameters (e.g. queries, resources, commands, etc.)._
+
 #pagebreak()
 
 === Blender Asset Workflow
 
 #figure(caption: [Blenvy], image("assets/blenvy.png", height: 20em))
 
-Blenvy is an tool for using Blender as the level editor for Bevy.
+Blenvy is a tool for using Blender as the level editor for Bevy.
 At the time of writing this report, Bevy has yet to developed a functional editor.
 The first step of the Blenvy workflow is to create assets within Blender.
 Next, using the Blenvy's Blender add-on, users can attach components to the objects in Blender:
