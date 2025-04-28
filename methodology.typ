@@ -1,5 +1,6 @@
 #import "keywords.typ": *
 #import "monokai_pro.typ": *
+#import "utils.typ": *
 
 = Methodology
 
@@ -149,7 +150,7 @@ Ultimately, combining these data sources will enable the research to deliver wel
 
 === Questionnaire Design
 
-_Section 1: Introduction and Basic Information_
+==== Section 1: Introduction and Basic Information
 
 This section gathers general demographics information from the respondents such as name, age, and gender.
 
@@ -170,20 +171,26 @@ This section gathers general demographics information from the respondents such 
     table_conts.push(q.just)
   }
 
+  set text(size: 0.9em)
   set par(justify: false)
   show figure: set block(breakable: true)
   figure(caption: caption)[
     #table(
       columns: (auto, 1fr, 1fr, 1fr),
       align: left,
-      table.header([No.], [Question], [Answer], [Justification]),
+      table.header(
+        [],
+        [*Question*],
+        [*Answer*],
+        [*Justification*],
+      ),
       ..table_conts
     )
   ]
 }
 
 #ques_design(
-  caption: "Section 1 questions, answers, and justifications",
+  caption: "Data gathering section 1 questions, answers, and justifications",
   quests: (
     (
       quest: "Name",
@@ -222,47 +229,15 @@ This section gathers general demographics information from the respondents such 
 
 #pagebreak()
 
-_Section 2: Vector graphics in games_
+==== Section 2: Vector graphics in games
 
 This section provides an overview of the current state of vector graphics in game engines, focusing on feature preferences, implementations, and challenges.
 The questions are designed with the assumption that the respondent has a basic understanding of vector graphics.
 This is due to the fact that vector graphics implementations in today’s game engines are still relatively limited, which means that many respondents may only be familiar with the basic concepts or have limited experience with more advanced features.
 Therefore, the questions aim to capture general insights rather than technical expertise, helping to gauge the broader perceptions and experiences of users with vector graphics in real-time game development.
 
-#let ques_design_obj(
-  caption: content,
-  quests: ((quest: content, ans: content, just: content, obj: content),),
-) = {
-  let table_conts = ()
-  for (i, q) in quests.enumerate() {
-    i += 1
-    table_conts.push([#i])
-    table_conts.push(q.quest)
-    table_conts.push(box(q.ans))
-    table_conts.push(q.just)
-    table_conts.push(q.obj)
-  }
-
-  set par(justify: false)
-  show figure: set block(breakable: true)
-  figure(caption: caption)[
-    #table(
-      columns: (auto, 1fr, 1fr, 1fr, 0.6fr),
-      align: left,
-      table.header(
-        [No.],
-        [Question],
-        [Answer],
-        [Justification],
-        [Relevant\ Research\ Objective],
-      ),
-      ..table_conts
-    )
-  ]
-}
-
 #ques_design_obj(
-  caption: "Section 2 questions, answers, and justifications",
+  caption: "Data gathering section 2 questions, answers, and justifications",
   quests: (
     (
       quest: "How important is the use of vector graphics for creating crisp and scalable visuals in games?",
@@ -428,29 +403,7 @@ The questionnaire has acquired a total of 33 respondants while the interview has
 
 === Questionnaire Analysis
 
-_Section 2: Vector graphics in games_
-
-#let q_analysis(
-  contents: ((ques: content, data: content, analysis: content),),
-) = {
-  for (i, cont) in contents.enumerate() {
-    let table_cont = ()
-    let idx = i + 1
-    table_cont.push([#idx])
-    table_cont.push(cont.ques)
-    table_cont.push("Data")
-    table_cont.push(cont.data)
-    table_cont.push("Analysis")
-    table_cont.push(cont.analysis)
-
-    box(
-      table(
-        columns: (auto, 1fr),
-        ..table_cont
-      ),
-    )
-  }
-}
+==== Section 2: Vector graphics in games
 
 #q_analysis(
   contents: (

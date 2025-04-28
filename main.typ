@@ -33,6 +33,23 @@
   set text(fill: base7, size: 8pt)
   box(it, fill: base0, inset: 1.5em, radius: 1em)
 }
+#show raw.where(block: false): body => {
+  box(
+    move(
+      dy: -0.1em,
+      box(
+        fill: base1,
+        outset: (y: 0.4em),
+        inset: (x: 0.2em),
+        radius: 0.3em,
+      )[
+        #let fill = if text.fill != black { text.fill } else { base8 }
+        #set text(fill: fill, size: 0.9em, font: "Consolas")
+        #strong[\`#body\`]
+      ],
+    ),
+  )
+}
 #show cite: it => {
   if it.form == "prose" {
     show "&": "and"
@@ -120,6 +137,10 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Typst_
 #pagebreak()
 
 #include "result.typ"
+
+#pagebreak()
+
+#include "conclusion.typ"
 
 // = Conclusion
 

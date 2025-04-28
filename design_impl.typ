@@ -2,23 +2,6 @@
 #import "monokai_pro.typ": *
 #import "utils.typ": *
 
-#show raw.where(block: false): body => {
-  box(
-    move(
-      dy: -0.1em,
-      box(
-        fill: base1,
-        outset: (y: 0.4em),
-        inset: (x: 0.2em),
-        radius: 0.3em,
-      )[
-        #let fill = if text.fill != black { text.fill } else { base8 }
-        #set text(fill: fill, size: 0.9em, font: "Consolas")
-        #strong[\`#body\`]
-      ],
-    ),
-  )
-}
 
 = Design and Implementation
 
@@ -263,12 +246,6 @@ Velyst depends strongly on the Typst world for providing the four foundation pil
   ```
 ]
 
-#let scope = text(blue)[`Scope`]
-#let func = text(red)[`Func`]
-#let cont = text(yellow)[`Content`]
-#let frame = text(purple)[`Frame`]
-#let vello_scene = text(orange)[`VelloScene`]
-
 The Velyst pipeline might vary slightly depending on the use case.
 However, in most scenarios, it begins with creating a native Typst source file within the assets folder.
 This source file will be loaded asynchronously into Bevy at runtime through the Bevy asset pipeline.
@@ -387,6 +364,8 @@ This crate also provides a huge number of other utility functions using the ```r
   // And many more...!
   ```
 ] <fn-elem>
+
+#pagebreak()
 
 ==== Typst Vello
 
@@ -887,7 +866,7 @@ Below are the possible scenarios for the spaceship's health and fuel UI:
     columns: (1fr, 1fr, 1fr),
     [
       #figure(
-        caption: [Lumina],
+        caption: [Full health],
         box(
           radius: 1em,
           clip: true,
@@ -898,7 +877,7 @@ Below are the possible scenarios for the spaceship's health and fuel UI:
     ],
     [
       #figure(
-        caption: [Small ore],
+        caption: [Damaged health],
         box(
           radius: 1em,
           clip: true,
@@ -909,7 +888,7 @@ Below are the possible scenarios for the spaceship's health and fuel UI:
     ],
     [
       #figure(
-        caption: [Medium ore],
+        caption: [Critical health],
         box(
           radius: 1em,
           clip: true,
@@ -1061,7 +1040,7 @@ We will take the main menu (@main-menu) as an example:
 
 Create the assets needed for the UI layout.
 This normally includes creating the SVG files using softwares like Graphite.rs or Adobe Illustrator.
-Some assets we created for the game includes:
+Some assets that were created for the game includes:
 
 #table(
   columns: (1fr, 1fr, 1fr),
@@ -1097,6 +1076,10 @@ Some assets we created for the game includes:
 ==== Layout Content
 
 Create the native Typst source file to layout the contents of the user interface.
+As shown below, a \*.typ file will be created, written in the raw Typst source code.
+Here, a `main_menu` Typst function is defined with three positional argument `connected`, `connection_msg`, and `dummy_update`.
+Inside there, a `box` is used to cover the entire screen (100% on width and height) with an inset of 4em (em means font size here, which will be dynamically sized depending on the application's window size).
+Within the box, lies the content of the main menu which includes the title, start, settings, and exit button.
 
 #figure(kind: image, caption: [Main menu Typst source file])[
   ```typ
