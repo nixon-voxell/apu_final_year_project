@@ -65,5 +65,5 @@ This can also partially be positively impacted by implementing the entity-compon
 A highly custom-curated animation library will also greatly improve the developer experience of Velyst.
 This ties in nicely with adding more scene format supports.
 Alternatively, Velyst could also spin out a new project to try and introduce a universal scene data structure for different formats.
-Ideas similar to this has also been proposed from the Vello community which had led to a potential project named "Tabulon".
+Ideas similar to this had also been proposed from the Vello community which led to a potential project named "Tabulon".
 Having a universal scene data structure will open up opportunities for animation developers to share and reuse animation libraries regardless of the input file or scene format!
