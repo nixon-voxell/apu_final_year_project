@@ -246,7 +246,7 @@ Unlike its predecessors, Typst can directly embed logic.
 Using the previous example, developers would only need to pass in a boolean value and Typst will automatically exclude the form from being in the layout at all.
 This currently works only in theory, as Typst is primarily a document generator without a user-friendly interface for modifying defined variables.
 
-This is where our project comes in, we aim to provide this interface through Velyst, which couple Typst with Vello for rendering dynamic and programmable content in real-time.
+This is where this project comes in, we aim to provide this interface through Velyst, which couple Typst with Vello for rendering dynamic and programmable content in real-time.
 
 /*
 Interactive UI/UX

@@ -187,7 +187,7 @@ The creation of the game will help ensure that Velyst is production ready by the
 
 + *No visual editors*:
   It is possible to blend the Typst language with some form of visual editors, where the output would be a Typst function that takes in input parameters and produces a dynamic output content.
-  However, our main focus for this project is to address the shortcomings of modern WYSIWYG editors.
+  However, the main focus for this project is to address the shortcomings of modern WYSIWYG editors.
   A feature as described would only be applicable after Velyst becomes a viable solution.
 
 + *Not a commercial game*:

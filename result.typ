@@ -16,7 +16,7 @@ Unit testing was used to verify the correctness and stability of the core game l
 It is done using the built-in Rust unit test tool (`cargo test`).
 Meanwhile, playtesting provided qualitative insights into the gameplay experience, usability, and the impact of the Velyst system on player perception of the in-game user interfaces and experiences.
 This is done through the format of an online questionnaire form.
-Playtesters will be handed this form after one or more playtest session(s) during our game showcase.
+Playtesters will be handed this form after one or more playtest session(s) during the game showcase.
 
 This chapter outlines the testing design, implementation, and results gathered through these methods, along with supporting evidence and analysis.
 
@@ -770,20 +770,32 @@ In general, players find it visually pleasing and feels that it enhances the ove
 
 == Summary
 
-In summary, all unit tests was successfully executed and passed with expected outcomes.
-In addition, the playtest session for Lumina gathered responses from 44 participants, providing valuable insights into multiple aspects of gameplay, visuals, and technology.
+All unit tests was successfully executed and passed with expected outcomes.
+The playtest session for Lumina offered a well-rounded perspective on how vector graphics and dynamic visuals impact real-time gameplay.
+With feedback from 44 participants, the data provided meaningful insight into how the game's systems performed in practice, directly reflecting the core research objectives of this study.
 
-From a gameplay perspective, the win rate varied slightly based on position and spaceship type.
-Players on the top-left side appeared to have a marginal advantage, suggesting either a map balance issue or data variance due to sample size.
-Feedback also highlighted the need to shorten the time limit and improve balancing between spaceship roles.
+One of the clearest takeaways was the impact of Velyst, the custom-built vector graphics system.
+Participants described the visuals as smooth, sharp, and highly legible, even during fast-paced moments.
+The clean lines and fluid animations helped players stay aware of the game state, contributing not just to aesthetic appeal but to functional clarity.
+In relation to the first objective, which focuses on visual quality, the data shows that vector graphics can significantly enhance how information is presented and perceived in real-time games.
+Players frequently mentioned that the interface remained clear on different screen sizes, and this consistency seemed to improve overall usability.
 
-In terms of visual clarity and user interface, Velyst, our custom vector graphics system, received overwhelmingly positive feedback.
-Players found the visuals sharp, smooth, and responsive, with high marks for interactivity and clarity.
-Most players also felt the animations helped them understand the game state better, and the UI adapted well across different screen sizes.
+When examining the second objective, integrating dynamic vector graphics into an interactive framework, the playtest showed promising results.
+Players interacted with various responsive UI elements that changed depending on in-game context.
+From status indicators to ability cooldowns, all visuals adjusted seamlessly as the game evolved.
+Comments like "the UI feels alive" or "it reacts before I even think" suggested that the dynamic feedback loop was both noticeable and appreciated.
+The system’s ability to maintain responsiveness under active conditions speaks to its potential as a model for future real-time vector-based interfaces.
 
-As for the global illumination system using Radiance Cascades, while it was not a primary focus of the project, it left a positive impression.
-Players reported enhanced immersion and a more atmospheric experience thanks to the lighting system.
+In terms of technical performance, which ties into the third objective, results were mostly positive but revealed a few areas worth refining.
+While frame rates were generally stable, some participants did report slight drops during high-action scenes or when multiple interface elements were triggered at once.
+Though these moments were brief, they highlighted the need for better resource management and possibly more optimized rendering techniques.
+This observation supports the ongoing need to identify and resolve technical challenges when implementing complex, layered vector systems in real-time.
 
-Overall, the playtest feedback supports the current direction of Lumina while highlighting key areas for improvement.
-Visual systems are performing well, and the game's unique look and feel have been positively received.
-With balance tweaks and gameplay refinements, Lumina is set to become an even more engaging and polished experience.
+Interestingly, although the global illumination system using Radiance Cascades was not the primary focus, it still contributed to the overall experience.
+Players described the lighting as immersive and atmospheric, reinforcing how complementary systems like lighting and shading can elevate the feel of a game when paired with clean, scalable visuals.
+Several responses mentioned how the light-dark interplay helped them orient themselves, even when gameplay got hectic.
+
+Altogether, the analysis of the playtest shows that the current direction of Lumina aligns well with the intended research goals.
+The use of vector graphics not only enhances visual quality but also improves interactivity and user clarity.
+While there are still some technical aspects to optimize, the overall reception suggests a strong foundation has been established.
+With further refinement, the Velyst system could serve as a practical framework for integrating high-performance, real-time vector graphics into future games.

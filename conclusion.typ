@@ -17,6 +17,13 @@ Many developers expressed a desire for improved tools that can streamline the in
 Several challenges were highlighted, such as the lack of seamless interoperability between different platforms, the complexity of dynamic vector graphics integration, and the need for more flexible, customizable toolsets.
 For instance, many participants pointed out that existing tools often require too much technical knowledge or have limitations in terms of performance and flexibility.
 
+During the execution of the project, the main objectives are being addressed as the first priority.
+The Velyst framework is developed to enhance the visual quality of the user interface in Lumina using Typst for layouting and animation, and Vello for rendering it in real-time.
+The framework is developed in a way that integrates seamlessly with the Bevy game engine.
+It features asset hot-reloading, real-time auto compilation, utility macros, a custom rendering pipeline, and many more!
+The Lumina game was used as a production testing bed for Velyst to identify the common usages of the Velyst framework and the features that is needed to support such real-time games or applications.
+In general, Velyst had been proven to be a production ready crate through the creation of Lumina, with player feedbacks suggesting the success of it.
+
 From the playtest feedbacks, #lumina garnered a high rating of appoximately 8 stars.
 It further signifies the polishness of the Lumina game itself and also that Velyst is capable of enhancing the interactivity and visual appearance of the game.
 In the feedback, we noticed that even though players might not notice the difference between raster and vector graphics in common screen sizes (1920 x 1080), players do enjoy the procedurally generated animations and smooth real-time interactions.

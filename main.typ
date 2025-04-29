@@ -59,6 +59,14 @@
   }
 }
 
+#image("assets/confidentiality.png")
+
+#pagebreak()
+
+#image("assets/library form.png")
+
+#pagebreak()
+
 #align(center)[= Acknowledgement]
 
 I would like to express my heartfelt gratitude to everyone who supported me throughout the development of the project.
@@ -224,6 +232,12 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Typst_
   #image("assets/logsheets/nov15.png")
 ]
 
+== Poster
+
+#figure(caption: [Poster])[
+  #image("assets/FYP Poster.png")
+]
+
 #pagebreak()
 
 == Gantt Chart
@@ -231,6 +245,12 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Typst_
 #figure(caption: "Gantt Chart")[
   #image("assets/gantt-chart.png")
 ]
+
+#figure(caption: "Gantt Chart 2")[
+  #image("assets/gantt-chart2.png")
+]
+
+#pagebreak()
 
 == Respondence Demographic Profile
 

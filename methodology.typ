@@ -315,7 +315,7 @@ Therefore, the questions aim to capture general insights rather than technical e
 
 Interviews provide qualitative data that yields valuable insights into the research objectives of this project.
 The selected interviewees for this section are experienced developers who have been working professionally in the industry sector related to games, UI/UX, and vector graphics, bringing real-world expertise to the discussion.
-This targeted selection allows the interviews to be more in-depth and technical, yielding concrete evidence and examples that can enhance the understanding of practical challenges and benefits associated with vector graphics in real-time game development.
+This targeted selection allows the interviews to be more in-depth, semi-structured, and technical, yielding concrete evidence and examples that can enhance the understanding of practical challenges and benefits associated with vector graphics in real-time game development.
 These insights will help inform the design of an effective framework and guide future advancements in integrating vector graphics into game engines.
 
 #let interview_design(
