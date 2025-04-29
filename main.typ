@@ -222,14 +222,23 @@ _*Keywords*: Typesetting, Markdown, Workflow, Dynamic content, Typst_
 #figure(caption: [Project log sheet 1])[
   #image("assets/logsheets/oct29.png")
 ]
-#figure(caption: [Project log sheet 2])[
+#figure(caption: [Project log sheet 2 (part 1)])[
   #image("assets/logsheets/nov8-1.png")
 ]
-#figure(caption: [Project log sheet 3])[
+#figure(caption: [Project log sheet 2 (part 2)])[
   #image("assets/logsheets/nov8-2.png")
 ]
-#figure(caption: [Project log sheet 4])[
+#figure(caption: [Project log sheet 3])[
   #image("assets/logsheets/nov15.png")
+]
+#figure(caption: [Project log sheet 4])[
+  #image("assets/logsheets/log-sheet-4.png")
+]
+#figure(caption: [Project log sheet 5])[
+  #image("assets/logsheets/log-sheet-5.png")
+]
+#figure(caption: [Project log sheet 6])[
+  #image("assets/logsheets/log-sheet-6.png")
 ]
 
 == Poster

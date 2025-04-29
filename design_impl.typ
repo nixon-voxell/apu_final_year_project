@@ -400,6 +400,8 @@ This crate also provides a huge number of other utility functions using the ```r
 #typst_vello exposes functionalities that allows developers to apply vector graphics post-processing and convert a #frame into a #vello_scene.
 The core data structure of Typst Vello is a `TypstScene` (@typst-scene).
 It flattens a vector graphics scene into a vector of groups and allows post-processing to any labeled group content.
+The flattening process also speeds up the processing of each group and removes the need for a recursive algorithm.
+This helps both in performance when performing post-processing and reduce potential bugs when using a tree like data structure.
 
 #figure(kind: image, caption: [Typst scene code snippet])[
   ```rs
@@ -412,13 +414,14 @@ It flattens a vector graphics scene into a vector of groups and allows post-proc
   ```
 ] <typst-scene>
 
-Below shows how you can label a piece of content in the Typst markdown structure:
+@label-typst shows how you can label a piece of content in the Typst markdown structure.
+It is important to note that only a labeled `#box` structure in Typst is eligible for post-processing.
 
 #figure(kind: image, caption: [Labeled markdown content.])[
   ```typ
   #box(fill: blue, inset: 1em)[This is a piece of content.] <my-label>
   ```
-]
+] <label-typst>
 
 Finally, #typst_vello exposes a ```rs render(..)``` function to render a `TypstScene` into a #vello_scene:
 
@@ -434,6 +437,9 @@ Finally, #typst_vello exposes a ```rs render(..)``` function to render a `TypstS
   }
   ```
 ]
+
+The returned #vello_scene from the ```rs render(..)``` function is a vector graphics scene structure that can be passed to the Vello rendering pipeline.
+The Vello rendering pipeline will then transform it into an image and render it onto the screen.
 
 #pagebreak()
 
@@ -562,6 +568,11 @@ Finally, Velyst also makes it extremely simple to register these bindings with a
   }
   ```
 ]
+
+The ```rs register_typst_asset(..)``` function loads the assets and detect any changes towards and reloads it.
+The ```rs compile_typst_func(..)``` function extracts and compiles a specific function from the Typst source code into a #cont.
+It will also pass in the required arguments to the Typst function through the generic type.
+Lastly, the ```rs render_typst_func(..)``` layouts the compiled #cont into a #frame which is then rendered into a #vello_scene.
 
 #pagebreak()
 
